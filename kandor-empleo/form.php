@@ -1,0 +1,1 @@
+<script src="<?php bloginfo('template_url'); ?>/js/form.js" type="text/javascript"></script>
