@@ -1,10 +1,10 @@
-<script type="text/javascript">
-	$(document).ready(function () {
+    <script type="text/javascript">
+$(document).ready(function () {
 		/* to top */
 		$().UItoTop({ easingType: 'easeOutQuart' });
 	});
 </script>
-<!-- /* <script src="<?php bloginfo('template_url'); ?>/js/form.js" type="text/javascript"></script> */ -->
+<script src="<?php bloginfo('template_url'); ?>/js/form.js" type="text/javascript"></script> 
 
 
 <div class="nine columns">
@@ -83,15 +83,6 @@
 	    	emm_paginate();
 			} ?>	        	
 			<!-- End Pagination -->
-			<div class="row">
-				<div class="five columns">
-					<div id="Modal" class="reveal-modal">
-					</div>
-					
-				</div>
-			
-			</div>
-			
 		</li>
   
   		<li id="nice2Tab"><!-- otros perfiles -->
@@ -105,7 +96,7 @@
 		<p><strong>Selecciona las ofertas de la lista y</strong></p>
 	</div>
 	<div class="four columns" id="volver">
-		<a class="nice radius blue button float-right full-width" href="#" data-reveal-id="Modal">solicita estos puestos</a>
+		<a class="nice radius blue button float-right full-width" href="#" id="windowModal">solicita estos puestos</a>
 	</div>
 	</div>
 	<div class="row cuarenta-top">
@@ -137,4 +128,21 @@ $(".demo-2").collapse({show: function(){
 	    }
 	});
 </script>
+<script type="text/javascript">
+$(document).ready(
+    function(){
+    $('#windowModal').click(function(event){
+        event.preventDefault();
+        event.stopPropagation();
+
+        var view = new ModalFormView();
+        view.render().showModal({
+            y: 20,
+            localWidth: 780
+        });
+
+    });     
+});
+</script>
+
 
