@@ -89,7 +89,6 @@
                 model: List,
                 fields: ['skills2']
             }).render();
-            $(this.el).attr('style')
             $(this.el).append(form1.el);
             $(this.el).append("<a id='more'>Show more</a><div id='show' style='display: none'>"+form2.$el.html()+"</div>");
             $(this.el).append("<br /><a id='next'>Next</a>");

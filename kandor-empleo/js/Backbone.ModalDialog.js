@@ -55,19 +55,7 @@ var ModalView =
 
                 if( this.modalBlanket.length == 0)
                 {
-                    this.modalBlanket =
-                        $("<div id='modal-blanket'>")
-                            .css(
-                                {
-                                    position: "absolute",
-                                    top: $(document).scrollTop(), // Use document scrollTop so it's on-screen even if the window is scrolled
-                                    left: 0,
-                                    height: $(document).height(), // Span the full document height...
-                                    width: "100%", // ...and full width
-                                    opacity: 0.5, // Make it slightly transparent
-                                    backgroundColor: "#000",
-                                    "z-index": 5000
-                                })
+                    this.modalBlanket = $("<div id='modal-blanket'>")
                             .appendTo( document.body)
                             .hide();
                 }
@@ -139,8 +127,6 @@ var ModalView =
 
 				var centreY = $(window).height() / 2;
 				var centreX = $(window).width() / 2;
-                console.log(centreX);
-                console.log($el.width());
 				var positionY = centreY - ($el.height() / 2);
 				var positionX = centreX - (localWidth / 2);
 
@@ -152,15 +138,6 @@ var ModalView =
                     positionY = this.options.y;}
 		
 		        $el.addClass( "modal");
-				$el.css(
-					{
-						"border": "2px solid #111",
-						"background-color": "#fff",
-						"border-radius": "5px;",
-						"-webkit-box-shadow": "0px 0px 15px 4px rgba(0, 0, 0, 0.5)",
-						"-moz-box-shadow": "0px 0px 15px 4px rgba(0, 0, 0, 0.5)",
-						"box-shadow": "0px 0px 15px 4px rgba(0, 0, 0, 0.5)"
-					});
 
                 this.showModalBlanket();
                 this.keyup = _.bind( this.keyup, this);
