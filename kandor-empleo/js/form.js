@@ -1,15 +1,11 @@
 (function ($){
     
-    var mmyBox = Backbone.Model.extend({
+    var myModelBox = Backbone.Model.extend({
         toString: function() { return this.get('slug'); }
     });
 
-    var mourBox = Backbone.Model.extend({
-        toString: function() { return this.get('slug'); }
-    });
-
-    var cmyBox = Backbone.Collection.extend({
-        model: mmyBox,
+    var myColBox = Backbone.Collection.extend({
+        model: myModelBox,
         url: '/wordpress/ofertas/prueba1/?json=get_taxonomy&taxonomy=habilidad',
         parse: function (resp) {
             return _.map( resp.terms, function( item ){
@@ -21,9 +17,9 @@
         }
     });
 
-    var courBox = Backbone.Collection.extend({
-        model: mourBox,
-        url: '/wordpress/?json=get_taxonomies_index&taxonomy=habilidad',
+    var myColArtBox = Backbone.Collection.extend({
+        model: myModelBox,
+        url: '/wordpress/ofertas/master/?json=get_taxonomy&taxonomy=skill-artistico',
         parse: function (resp) {
             return _.map( resp.terms, function( item ){
               return {
@@ -34,10 +30,39 @@
         }
     });
 
-    var cmyBoxes = new cmyBox(); 
-    cmyBoxes.fetch();
-    var courBoxes = new courBox(); 
-    courBoxes.fetch();
+    var myColTechBox = Backbone.Collection.extend({
+        model: myModelBox,
+        url: '/wordpress/ofertas/master/?json=get_taxonomy&taxonomy=skill-tecnico',
+        parse: function (resp) {
+            return _.map( resp.terms, function( item ){
+              return {
+                  id: item.id,
+                  slug: item.slug
+              };
+            }); 
+        }
+    });
+    var myColSoftBox = Backbone.Collection.extend({
+        model: myModelBox,
+        url: '/wordpress/ofertas/master/?json=get_taxonomy&taxonomy=software-profiency',
+        parse: function (resp) {
+            return _.map( resp.terms, function( item ){
+              return {
+                  id: item.id,
+                  slug: item.slug
+              };
+            }); 
+        }
+    });
+
+    var myColArtBoxes = new myColArtBox(); 
+    myColArtBoxes.fetch();
+    var myColTechBoxes = new myColTechBox(); 
+    myColTechBoxes.fetch();
+    var myColSoftBoxes = new myColSoftBox(); 
+    myColSoftBoxes.fetch();
+    var myColBoxes = new myColBox(); 
+    myColBoxes.fetch();
 
     function validateEmail(str) {
         var regex = new RegExp("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?");
@@ -55,18 +80,20 @@
             link1:                  { type: 'Text', title: 'Enlace a Reel', dataType: 'url' },
             link2:                  { type: 'Text', title: 'Enlace a Web/Blog', dataType: 'url' },
             comments:               { type: 'Text', title: 'Comentarios', dataType: 'url' },
-            skills1:                { type: 'Checkboxes', title:' ', options: cmyBoxes },
-            skills2:                { type: 'Checkboxes', title:' ', options: courBoxes },
-            skills3:                { type: 'List' },
+            skills1:                { type: 'Checkboxes', title:' ', options: myColBoxes },
+            skills2:                { type: 'Checkboxes', title:' ', options: myColArtBox },
+            skills3:                { type: 'Checkboxes', title:' ', options: myColTechBox },
+            skills4:                { type: 'Checkboxes', title:' ', options: myColSoftBox },
+            skills5:                { type: 'List' },
         },
     });
     
-    var List = new Form ({
+    var List11 = new Form ({
         skills1: true,
     });
 
-    var Step1View = Backbone.View.extend({
-        id: 'step1',
+    var Step11View = Backbone.View.extend({
+        id: 'step11',
 
         events: {
             'click #more': 'more',
@@ -76,21 +103,80 @@
 
         initialize: function (){
             _.bindAll(this, 'render', 'more', 'next', 'less');
-            console.log(List.attributes);
             this.render();
         },
 
         render: function (){
             var form1 = new Backbone.Form({
-                model: List,
+                model: List11,
                 fields: ['skills1']
             }).render();
             var form2 = new Backbone.Form({
-                model: List,
+                model: List11,
                 fields: ['skills2']
             }).render();
+            $(this.el).css('display', 'block');
             $(this.el).append(form1.el);
             $(this.el).append("<a id='more'>Show more</a><div id='show' style='display: none'>"+form2.$el.html()+"</div>");
+            $(this.el).append("<br /><a id='next'>Next</a>");
+            return this;
+        },
+
+        more: function (){
+            $('#more').text('Hide more').attr('id', 'hide');
+            $('#show').show();
+        },
+
+        less: function (){
+            $('#hide').text('Show more').attr('id', 'more');
+            $('#show').hide();
+        },
+
+        next: function (){
+            $('#step1').hide();
+            $('#step2').show();
+            $('#modal-blanket').css({
+                height: $(document).height(), // Span the full document height...
+                width: "100%", // ...and full width
+            });
+        }
+
+    });
+    
+    var List12 = new Form ();
+
+            
+    var Step12View = Backbone.View.extend({
+        id: 'step12',
+
+        events: {
+            'click #more': 'more',
+            'click #hide': 'less',
+            'click #next': 'next',
+        },
+
+        initialize: function (){
+            _.bindAll(this, 'render', 'more', 'next', 'less');
+            this.render();
+        },
+
+        render: function (){
+            var form2 = new Backbone.Form({
+                model: Listi12,
+                fields: ['skills2']
+            }).render();
+            var form3 = new Backbone.Form({
+                model: List12,
+                fields: ['skills3']
+            }).render();
+            var form4 = new Backbone.Form({
+                model: List12,
+                fields: ['skills4']
+            }).render();
+            $(this.el).css('display', 'block');
+            $(this.el).append(form2.el);
+            $(this.el).append(form3.el);
+            $(this.el).append(form4.el);
             $(this.el).append("<br /><a id='next'>Next</a>");
             return this;
         },
@@ -215,12 +301,27 @@
         
     });
 
-    ModalFormView = ModalView.extend({
+    ModalViewForm1 = ModalView.extend({
         
         initialize: function(){
-            this.list1View = new Step1View();
-            this.list1View.parentView = this;
-            $(this.el).append(this.list1View.el);
+            this.list11View = new Step11View();
+            this.list11View.parentView = this;
+            $(this.el).append(this.list11View.el);
+            this.list2View = new Step2View();
+            this.list2View.parentView = this;
+            $(this.el).append(this.list2View.el);
+            this.list3View = new Step3View();
+            this.list3View.parentView = this;
+            $(this.el).append(this.list3View.el);
+        }
+    });
+    
+    ModalViewForm2 = ModalView.extend({
+        
+        initialize: function(){
+            this.list12View = new Step12View();
+            this.list12View.parentView = this;
+            $(this.el).append(this.list11View.el);
             this.list2View = new Step2View();
             this.list2View.parentView = this;
             $(this.el).append(this.list2View.el);

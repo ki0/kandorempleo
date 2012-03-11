@@ -96,12 +96,12 @@ $(document).ready(function () {
 		<p><strong>Selecciona las ofertas de la lista y</strong></p>
 	</div>
 	<div class="four columns" id="volver">
-		<a class="nice radius blue button float-right full-width" href="#" id="windowModal">solicita estos puestos</a>
+		<a class="nice radius blue button float-right full-width" href="#" id="windowModalForm1">solicita estos puestos</a>
 	</div>
 	</div>
 	<div class="row cuarenta-top">
 <p><strong>&iquest;No has encontrado ninguna oferta que se ajuste a tu perfil?</strong></p>
-<p>No te preocupes en KANDOR Graphics estamos continuamente buscando nuevos talentos para nuestros proyectos. Inscr&iacute;bete en nuestra Bolsa de Empleo y en cuanto surja una oferta que se ajuste a tu perfil te incluiremos en el proceso de selecci&oacute;n.</p>
+<p>No te preocupes en KANDOR Graphics estamos continuamente buscando nuevos talentos para nuestros proyectos. Inscr&iacute;bete en nuestra <a href="#" id="windowModalForm2">Bolsa de Empleo</a> y en cuanto surja una oferta que se ajuste a tu perfil te incluiremos en el proceso de selecci&oacute;n.</p>
 
 <p>Si deseas estar informado acerca de nuestras ofertas de empleo suscr&iacute;bete a esta lista y estar&aacute;s siempre al tanto de nuestros procesos de selecci&oacute;n.</p>
 </div>
@@ -131,11 +131,26 @@ $(".demo-2").collapse({show: function(){
 <script type="text/javascript">
 $(document).ready(
     function(){
-    $('#windowModal').click(function(event){
+    $('#windowModalForm1').click(function(event){
         event.preventDefault();
         event.stopPropagation();
 
-        var view = new ModalFormView();
+        var view = new ModalViewForm1();
+        view.render().showModal({
+            y: 20,
+            localWidth: 780
+        });
+    });
+});
+</script>
+<script type="text/javascript">
+$(document).ready(
+    function(){
+    $('#windowModalForm2').click(function(event){
+        event.preventDefault();
+        event.stopPropagation();
+
+        var view = new ModalViewForm2();
         view.render().showModal({
             y: 20,
             localWidth: 780
