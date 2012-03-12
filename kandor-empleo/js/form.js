@@ -162,7 +162,7 @@
 
         render: function (){
             var form2 = new Backbone.Form({
-                model: Listi12,
+                model: List12,
                 fields: ['skills2']
             }).render();
             var form3 = new Backbone.Form({
