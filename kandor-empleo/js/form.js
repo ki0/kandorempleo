@@ -6,7 +6,7 @@
 
     var myColBox = Backbone.Collection.extend({
         model: myModelBox,
-        url: '/wordpress/ofertas/prueba1/?json=get_taxonomy&taxonomy=habilidad',
+        url: '/wordpress/ofertas/master/?json=get_taxonomy&taxonomy=habilidad',
         parse: function (resp) {
             return _.map( resp.terms, function( item ){
               return {

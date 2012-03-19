@@ -4,7 +4,6 @@ $(document).ready(function () {
 		$().UItoTop({ easingType: 'easeOutQuart' });
 	});
 </script>
-<script src="<?php bloginfo('template_url'); ?>/js/form.js" type="text/javascript"></script> 
 
 
 <div class="nine columns">
