@@ -279,7 +279,7 @@ $meta_boxes[] = array(
     )
 );
 
-// Habilidades
+// cualificaciones
 $meta_boxes[] = array(
     'id' => 'cualificaciones',
     'title' => 'Cualificaciones',
@@ -401,11 +401,8 @@ class My_meta_box {
     }
 }
 
- 
-// The register_post_type() function is not to be used before the 'init'.
 add_action( 'init', 'my_custom_init' );
 
-/* Here's how to create your customized labels */
 function my_custom_init() {
     $labels = array(
         'name' => _x( 'Ofertas', 'post type general name' ), // Tip: _x('') is used for localization
@@ -421,7 +418,6 @@ function my_custom_init() {
         'parent_item_colon' => ''
     );
 
-    // Create an array for the $args
     $args = array( 'labels' => $labels, /* NOTICE: the $labels variable is used here... */
         'public' => true,
         'publicly_queryable' => true,
@@ -431,17 +427,13 @@ function my_custom_init() {
         'capability_type' => 'post',
         'hierarchical' => false,
         'menu_position' => null,
-        'supports' => array( 'title', 'editor')
+        'supports' => array( 'title', 'editor','custom-fileds' )
     ); 
 
     register_post_type( 'Ofertas', $args ); /* Register it and move on */
 }
 
-
-
 add_action( 'init', 'create_perfil_taxonomies', 0 );
-
-//creamos la taxonomia para los tipos de trabajo
 
 function create_perfil_taxonomies() {
 
@@ -471,7 +463,7 @@ function create_perfil_taxonomies() {
 
 add_action( 'init', 'create_dpto_taxonomies', 0 );
 
-//creamos la taxonomia para los tipos de trabajo
+//creamos la taxonomia departamento para los tipos de trabajo
 
 function create_dpto_taxonomies() {
 
@@ -499,34 +491,276 @@ function create_dpto_taxonomies() {
 
 }
 
-add_action( 'init', 'create_skills_taxonomies', 0 );
+add_action( 'init', 'create_ha_taxonomies', 0 );
 
-//creamos la taxonomia para los tipos de trabajo
+//creamos la taxonomia habilidades artisticas para los tipos de trabajo
 
-function create_skills_taxonomies() {
+function create_ha_taxonomies() {
 
   $labels = array(
-    'name' => _x( 'Habilidades', 'taxonomy general name' ),
-    'singular_name' => _x( 'Habilidad', 'taxonomy singular name' ),
-    'search_items' =>  __( 'Search Genres' ),
-    'all_items' => __( 'Habilidades' ),
+    'name' => _x( 'Habilidad artistica', 'taxonomy general name' ),
+    'singular_name' => _x( 'Habilidad artistica', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Buscar Habilidad' ),
+    'all_items' => __( 'Habilidades artisticas' ),
     'parent_item' => __( 'Parent Genre' ),
     'parent_item_colon' => __( 'Parent Genre:' ),
     'edit_item' => __( 'Editar habilidad' ), 
     'update_item' => __( 'Actualizar habilidad' ),
-    'add_new_item' => __( 'Nueva habilidad' ),
-    'new_item_name' => __( 'Nueva habilidad' ),
-    'menu_name' => __( 'Habilidades' ),
+    'add_new_item' => __( 'Nueva habilidad artistica' ),
+    'new_item_name' => __( 'Nueva habilidad artistica' ),
+    'menu_name' => __( 'Habilidades artisticas' ),
   ); 	
 
-  register_taxonomy('habilidad',array('ofertas'), array(
+  register_taxonomy('habilidad-artistica',array('ofertas'), array(
     'hierarchical' => true,
     'labels' => $labels,
     'show_ui' => true,
     'query_var' => true,
-    'rewrite' => array( 'slug' => 'habilidad' ),
+    'rewrite' => array( 'slug' => 'habilidad-artistica' ),
   ));
 
 }
+
+add_action( 'init', 'create_ht_taxonomies', 0 );
+
+//creamos la taxonomia habilidades artisticas para los tipos de trabajo
+
+function create_ht_taxonomies() {
+
+  $labels = array(
+    'name' => _x( 'Habilidad tecnica', 'taxonomy general name' ),
+    'singular_name' => _x( 'Habilidad tecnica', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Search Genres' ),
+    'all_items' => __( 'Habilidades tecnicas' ),
+    'parent_item' => __( 'Parent Genre' ),
+    'parent_item_colon' => __( 'Parent Genre:' ),
+    'edit_item' => __( 'Editar habilidad' ), 
+    'update_item' => __( 'Actualizar habilidad' ),
+    'add_new_item' => __( 'Nueva habilidad tecnica' ),
+    'new_item_name' => __( 'Nueva habilidad tecnica' ),
+    'menu_name' => __( 'Habilidades tecnicas' ),
+  ); 	
+
+  register_taxonomy('habilidad-tecnica',array('ofertas'), array(
+    'hierarchical' => true,
+    'labels' => $labels,
+    'show_ui' => true,
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'habilidad-tecnica' ),
+  ));
+
+}
+
+add_action( 'init', 'create_software_taxonomies', 0 );
+
+//creamos la taxonomia habilidades artisticas para los tipos de trabajo
+
+function create_software_taxonomies() {
+
+  $labels = array(
+    'name' => _x( 'Habilidad software', 'taxonomy general name' ),
+    'singular_name' => _x( 'Habilidad software', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Search software' ),
+    'all_items' => __( 'Habilidades software' ),
+    'parent_item' => __( 'Parent software' ),
+    'parent_item_colon' => __( 'Parent software:' ),
+    'edit_item' => __( 'Editar software' ), 
+    'update_item' => __( 'Actualizar software' ),
+    'add_new_item' => __( 'Nueva habilidad de software' ),
+    'new_item_name' => __( 'Nueva habilidad software' ),
+    'menu_name' => __( 'Habilidad software' ),
+  ); 	
+
+  register_taxonomy('habilidad-software',array('ofertas'), array(
+    'hierarchical' => true,
+    'labels' => $labels,
+    'show_ui' => true,
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'habilidad-software' ),
+  ));
+
+}
+
+add_action( 'init', 'my_custom_init1' );
+
+function my_custom_init1() {
+    $labels = array(
+        'name' => _x( 'Aspirantes', 'post type general name' ), // Tip: _x('') is used for localization
+        'singular_name' => _x( 'Aspirantes', 'post type singular name' ),
+		'view_item' => __( 'Ver Aspirantes' ),
+        'search_items' => __( 'Buscar Aspirantes' ),
+        'not_found' =>  __( 'No se encontraron aspirantes' ),
+        'not_found_in_trash' => __( 'No hay aspirantes en la papelera' ),
+        'parent_item_colon' => ''
+    );
+
+    $args = array( 'labels' => $labels, /* NOTICE: the $labels variable is used here... */
+        'public' => false,
+        'publicly_queryable' => true,
+        'show_ui' => true,
+        'query_var' => true,
+        'rewrite' => false,
+        'capability_type' => 'post',
+        'hierarchical' => false,
+        'menu_position' => null,
+        'supports' => array( 'title','custom-fileds')
+    ); 
+
+    register_post_type( 'Aspirantes', $args ); /* Register it and move on */
+}
+
+add_action( 'init', 'create_perfil_aspirantes_taxonomies', 0 );
+
+function create_perfil_aspirantes_taxonomies() {
+
+  $labels = array(
+    'name' => _x( 'Perfil aspirante', 'taxonomy general name' ),
+    'singular_name' => _x( 'Perfil aspirante', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Buscar Perfil aspirante' ),
+    'all_items' => __( 'Perfiles de la oferta' ),
+    'parent_item' => __( 'Perfil Superior' ),
+    'parent_item_colon' => __( 'Parent Genre:' ),
+    'new_item_name' => __( 'Nuevo perfil aspirante' ),
+    'menu_name' => __( 'Perfiles aspirantes' ),
+  ); 	
+
+  register_taxonomy('perfil-aspirante',array('aspirantes'), array(
+    'hierarchical' => true,
+    'labels' => $labels,
+    'show_ui' => true,
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'perfil-aspirante' ),
+  ));
+
+}
+
+add_action( 'init', 'create_departamentos_aspirantes_taxonomies', 0 );
+
+function create_departamentos_aspirantes_taxonomies() {
+
+  $labels = array(
+    'name' => _x( 'Departamento', 'taxonomy general name' ),
+    'singular_name' => _x( 'Departamento ', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Buscar departamento' ),
+    'all_items' => __( 'Departamento de la oferta' ),
+    'parent_item' => __( 'Perfil Superior' ),
+    'parent_item_colon' => __( 'Departamento superior' ),
+    'menu_name' => __( 'Departmaneto de la oferta' ),
+  ); 	
+
+  register_taxonomy('departamento-oferta',array('aspirantes'), array(
+    'hierarchical' => true,
+    'labels' => $labels,
+    'show_ui' => true,
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'departamento-aspirante' ),
+  ));
+
+}
+
+
+
+
+
+add_action( 'restrict_manage_posts', 'my_restrict_manage_posts' );
+function my_restrict_manage_posts() {
+
+    // only display these taxonomy filters on desired custom post_type listings
+    global $typenow;
+    if ($typenow == 'ofertas') {
+
+        // create an array of taxonomy slugs you want to filter by - if you want to retrieve all taxonomies, could use get_taxonomies() to build the list
+        $filters = array('departamento', 'perfil', 'habilidad-artistica', 'habilidad-tecnica', 'habilidad-software');
+
+        foreach ($filters as $tax_slug) {
+            // retrieve the taxonomy object
+            $tax_obj = get_taxonomy($tax_slug);
+            $tax_name = $tax_obj->labels->name;
+
+            // output html for taxonomy dropdown filter
+            echo "<select name='$tax_slug' id='$tax_slug' class='postform'>";
+            echo "<option value=''>Mostrar $tax_name</option>";
+            generate_taxonomy_options($tax_slug,0,0);
+            echo "</select>";
+        }
+    }
+}
+
+function generate_taxonomy_options($tax_slug, $parent = '', $level = 0) {
+    $args = array('show_empty' => 1);
+    if(!is_null($parent)) {
+        $args = array('parent' => $parent);
+    }
+    $terms = get_terms($tax_slug,$args);
+    $tab='';
+    for($i=0;$i<$level;$i++){
+        $tab.='--';
+    }
+    foreach ($terms as $term) {
+        // output each select option line, check against the last $_GET to show the current option selected
+        echo '<option value='. $term->slug, $_GET[$tax_slug] == $term->slug ? ' selected="selected"' : '','>' .$tab. $term->name .' (' . $term->count .')</option>';
+        generate_taxonomy_options($tax_slug, $term->term_id, $level+1);
+    }
+
+}
+
+
+add_action("manage_posts_custom_column",  "portfolio_custom_columns");
+add_filter("manage_edit-ofertas_columns", "portfolio_edit_columns");
+ 
+function portfolio_edit_columns($columns){
+  $columns = array(
+    "cb" => "<input type=\"checkbox\" />",
+    "title" => "Oferta",
+    "description" => "Descripcion",
+    "perfil" => "Perfil",
+    "departamento" => "Departamento",
+	"habilidad-tecnica" => "Habilidad Tecnica",
+	"habilidad-artistica" => "Habilidad Artistica",
+	"habilidad-software" => "Habilidad Software",
+  );
+ 
+  return $columns;
+}
+function portfolio_custom_columns($column){
+  global $post;
+ 
+  switch ($column) {
+    case "description":
+      the_excerpt();
+      break;
+    case "perfil":
+      $custom = get_post_custom();
+      echo get_the_term_list($post->ID, 'perfil', '', ', ','');
+      break;
+    case "departamento":
+      echo get_the_term_list($post->ID, 'departamento', '', ', ','');
+      break;
+    case "habilidad-tecnica":
+      echo get_the_term_list($post->ID, 'habilidad-tecnica', '', ', ','');
+      break;
+	case "habilidad-artistica":
+      echo get_the_term_list($post->ID, 'habilidad-artistica', '', ', ','');
+      break;
+	case "habilidad-software":
+      echo get_the_term_list($post->ID, 'habilidad-software', '', ', ','');
+      break;
+
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ?>

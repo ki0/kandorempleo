@@ -96,7 +96,7 @@
 /*	--------------------------------------------------
 	:: Lists
 	-------------------------------------------------- */
-	ul, ol { margin-bottom: 18px; }
+	ul, ol { margin-bottom: 18px; margin-top: 18px;}
 	ul { list-style: none outside; }
 	ol { list-style: decimal; }
 	ol, ul.square, ul.circle, ul.disc { margin-left: 30px; }
@@ -151,7 +151,7 @@
 	h1 { font-size: 40px; font-family: Belinda, Helvetica, arial; padding-left: 22px; background-image: url(../images/h1-pre.png); background-repeat: no-repeat; background-position: left 10px;}
 	h2 { font-family:sanchez-bold; font-size:15px; text-transform: uppercase; margin-bottom: 25px; }
 	h3 { font-family: Populaire; font-size: 25px; }
-	h4 { font-family: Sanchez-Bold; font-size: 11px; }
+	h4 { font-family: Sanchez-Bold; font-size: 15px; }
 	h5 { font-family: Sanchez-Bold; font-size: 18px; }
 	h6 { font-family: Sanchez-Bold; font-size: 22px; }
 
@@ -2477,6 +2477,84 @@ ul.ul_footer  {
 	margin: 10px 0 20px 0;
 	
 	}
+	
+	.habilidad {
+	height: 300px;
+	display: block;
+	margin-bottom: 10px;
+	}
+	
+	.items {
+	float: left;
+	width: 205px;
+	margin: 0px 10px 10px 0px;
+	font-size: 11px;
+	}
+	
+	#filtro {
+	margin-top: 20px;
+	background-image: url("../images/titular2v_fondo.png");
+	padding: 5px;
+	}
+	
+	hr.negro {
+	border-color: #000;
+	border-style: solid;
+	}
+	
+	#filtrar {
+	margin-right: 60px;
+	margin-bottom: 10px;
+	}
+
+	.prueba ul {
+	list-style: inherit;
+	}
+
+	.prueba ul li {
+	font-family: sanchez;
+	font-size: 15px;
+	}
+
+	#next2  {
+	float: right;
+	}
+
+	#next {
+	/*float: right;*/
+	}
+
+	.bbf-field {
+	width: 170px;
+	float: left;
+	margin-right: 70px;
+	margin-bottom: 20px;
+	}
+
+	.bbf-form {
+	margin-bottom: 10px;
+	padding: 10px;
+	background-image: url("../images/titular2v_fondo.png");
+    background-repeat: repeat-x;
+	}
+
+	input {
+	border: 1px solid #D4CD9C;
+	padding: 2px;
+	}
+
+	textarea {
+	border: 1px solid #D4CD9C;
+	width: 650px;
+	height: 200px;
+	}
+
+	label {
+	font-family: sanchez;
+	font-size: 13px;
+	}
+
+
 
 	/*h3 {line-height:1;}
 	h3 {padding: 5px; cursor:pointer; background: #eee url("state.gif") no-repeat 100% 5px; display:block; text-decoration:none; margin:0; margin-top:10px;}  
