@@ -1,5 +1,5 @@
 (function ($){
-    
+
     var myModelBox = Backbone.Model.extend({
         toString: function() { return this.get('slug'); }
     });
@@ -19,7 +19,7 @@
 
     var myColArtBox = Backbone.Collection.extend({
         model: myModelBox,
-        url: '/wordpress/ofertas/master/?json=get_taxonomy&taxonomy=skill-artistico',
+        url: '/wordpress/ofertas/master/?json=get_taxonomy&taxonomy=habilidad-artistica',
         parse: function (resp) {
             return _.map( resp.terms, function( item ){
               return {
@@ -32,7 +32,7 @@
 
     var myColTechBox = Backbone.Collection.extend({
         model: myModelBox,
-        url: '/wordpress/ofertas/master/?json=get_taxonomy&taxonomy=skill-tecnico',
+        url: '/wordpress/ofertas/master/?json=get_taxonomy&taxonomy=habilidad-tecnica',
         parse: function (resp) {
             return _.map( resp.terms, function( item ){
               return {
@@ -44,7 +44,7 @@
     });
     var myColSoftBox = Backbone.Collection.extend({
         model: myModelBox,
-        url: '/wordpress/ofertas/master/?json=get_taxonomy&taxonomy=software-profiency',
+        url: '/wordpress/ofertas/master/?json=get_taxonomy&taxonomy=habilidad-software',
         parse: function (resp) {
             return _.map( resp.terms, function( item ){
               return {
