@@ -2521,9 +2521,13 @@ ul.ul_footer  {
 	}
 
 	#next {
-	/*float: right;*/
+	float: right;
 	}
-
+	
+	#end {
+	float: right;
+	}	
+	
 	.bbf-field {
 	width: 170px;
 	float: left;
@@ -2534,10 +2538,13 @@ ul.ul_footer  {
 	.bbf-form {
 	margin-bottom: 10px;
 	padding: 10px;
-	background-image: url("../images/titular2v_fondo.png");
-    background-repeat: repeat-x;
+	}
+	
+	.bbf-form ul {
+	margin: 0px;
 	}
 
+	
 	input {
 	border: 1px solid #D4CD9C;
 	padding: 2px;
@@ -2546,7 +2553,7 @@ ul.ul_footer  {
 	textarea {
 	border: 1px solid #D4CD9C;
 	width: 650px;
-	height: 200px;
+	height: 150px;
 	}
 
 	label {
@@ -2554,8 +2561,90 @@ ul.ul_footer  {
 	font-size: 13px;
 	}
 
+	.flecha {
+	font-family: sanchez;
+	font-size: 15px;
+	}
+	
+	.demo-1 {
+	margin-bottom: 40px;
+	}
+	
+	.selecciona {
+	margin-top: 20px;
+	margin-left: 90px;
+	}
+	
+	ul #skills1  {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	width: 650px;
+/* 	height: 400px !important; */
+/* 	background-image: url("../images/titular2v_fondo.png"); */
+    background-repeat: repeat-x;
 
+	}
+	
+	ul #skills2  {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	width: 650px;
+/* 	height: 400px !important; */
+/* 	background-image: url("../images/titular2v_fondo.png"); */
+    background-repeat: repeat-x;
 
+	}
+	
+	ul #skills3  {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	width: 650px;
+/* 	height: 400px !important; */
+/* 	background-image: url("../images/titular2v_fondo.png"); */
+    background-repeat: repeat-x;
+
+	}
+	
+	#skills1 li {
+	width: 250px;
+	float: left;
+	margin-right: 30px;
+	margin-left: 30px;
+	}
+	
+	#skills2 li {
+	width: 250px;
+	float: left;
+	margin-right: 30px;
+	margin-left: 30px;
+	}
+	
+	#skills3 li {
+	width: 250px;
+	float: left;
+	margin-right: 30px;
+	margin-left: 30px;
+	}
+	
+	#more {
+	margin-left: 180px;
+	cursor: pointer;
+	font-family: sanchez-bold;
+	font-size: 15px;
+	}
+	
+	#hide {
+	margin-left: 180px;
+	cursor: pointer;
+	font-family: sanchez-bold;
+	font-size: 15px;
+	}
+	
+	#modalContainer {
+	height: auto;
+	}
+	
+	
 	/*h3 {line-height:1;}
 	h3 {padding: 5px; cursor:pointer; background: #eee url("state.gif") no-repeat 100% 5px; display:block; text-decoration:none; margin:0; margin-top:10px;}  
 	h3 a {color: #000; text-decoration:none;}*/
