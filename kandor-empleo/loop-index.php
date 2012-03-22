@@ -167,7 +167,7 @@
   		<li id="nice2Tab"><!-- otros perfiles -->
   			
   		<p>Lo sentimos, pero no tenemos procesos de selecci&oacute;n abiertos para Otros Perfiles.</p>
-		<p>Si est&aacute;s interesado en puestos <strong>Administrativos, Comerciales, Marketing, RRHH, Producci&oacute;n, Finanzas, IT, </strong>etc... puedes inscribirte en nuestra <a href="#" id="windowModal3">Bolsa de Empleo</a> y en cuanto surja una oferta que se ajuste a tu perfil te incluiremos en el proceso de selecci&oacute;n.</p>
+		<p>Si est&aacute;s interesado en puestos <strong>Administrativos, Comerciales, Marketing, RRHH, Producci&oacute;n, Finanzas, IT, </strong>etc... puedes inscribirte en nuestra <a href="#" id="windowModal2">Bolsa de Empleo</a> y en cuanto surja una oferta que se ajuste a tu perfil te incluiremos en el proceso de selecci&oacute;n.</p>
   			
 		</li>
 	</ul>
@@ -263,21 +263,4 @@ $(document).ready(
     });     
 });
 
-$(document).ready(
-    function(){
-    $('#windowModal3').click(function(event) {
-    
-		$('html, body').animate({ scrollTop: 0 }, 'slow');		
-		
-		event.preventDefault();
-        event.stopPropagation();
-		
-		var view = new ModalFormView2();
-        view.render().showModal({
-            y: 20,
-            localWidth: 780
-        });
-
-    });     
-});
 </script>
