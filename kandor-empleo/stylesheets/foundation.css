@@ -2529,12 +2529,21 @@ ul.ul_footer  {
 	}	
 	
 	.bbf-field {
+/*
+	width: 170px;
+	float: left;
+	margin-right: 70px;
+	margin-bottom: 20px;
+*/
+	}
+	
+	li.bbf-field {
 	width: 170px;
 	float: left;
 	margin-right: 70px;
 	margin-bottom: 20px;
 	}
-
+	
 	.bbf-form {
 	margin-bottom: 10px;
 	padding: 10px;
@@ -2644,6 +2653,59 @@ ul.ul_footer  {
 	height: auto;
 	}
 	
+	
+	#modal-blanket {
+    position : absolute;
+    top: 0px;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.5;
+    background-color: #000;
+    z-index: 5000;
+}
+
+	#container {
+	    width:600px; 
+	    margin:50px auto 20px; 
+	    background-color:#FEFDEB; 
+	    min-height:600px;
+		border-radius:6px;
+		-moz-box-shadow: 0 0 3px 2px #A1B41D;
+		-webkit-box-shadow: 0 0 3px 2px #A1B41D;
+		box-shadow: 0 0 3px 2px #A1B41D;
+	}
+	#content {
+	    padding:10px 30px 30px;
+	}
+	
+	.modal {
+	    padding: 50px;
+	
+	    margin-bottom: 50px;
+	    border: 2px solid #111;
+	    background-color: #fff;
+	    border-radius: 5px;
+	    -webkit-box-shadow: 0px 0px 15px 4px rgba(0, 0, 0, 0.5);
+	    -moz-box-shadow: 0px 0px 15px 4px rgba(0, 0, 0, 0.5);
+	    box-shadow: 0px 0px 15px 4px rgba(0, 0, 0, 0.5);
+	}
+	#step1 {
+	    width: 675px;
+	    height: auto;
+	}
+	#step2 {
+	    display: none;
+	    width: 675px;
+	    height: auto;
+	}
+	#step3 {
+	    display:none;
+	    width: 675px;
+	    height:auto;
+	}
+
+
 	
 	/*h3 {line-height:1;}
 	h3 {padding: 5px; cursor:pointer; background: #eee url("state.gif") no-repeat 100% 5px; display:block; text-decoration:none; margin:0; margin-top:10px;}  
