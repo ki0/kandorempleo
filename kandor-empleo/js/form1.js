@@ -312,6 +312,9 @@
 
         end: function (){
             $('#step3').hide();
+            console.log(this);
+            $('#modalContainer').hide();
+            $('#modalContainer').fadeOut();
         }
         
     });

@@ -5,7 +5,6 @@
 	});
 </script>
 
-	<script src="<?php bloginfo('template_url'); ?>/js/form2.js" type="text/javascript"></script>
 	<script src="<?php bloginfo('template_url'); ?>/js/form1.js" type="text/javascript"></script>
 
 <div class="nine columns">
