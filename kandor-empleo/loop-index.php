@@ -5,6 +5,7 @@
 	});
 </script>
 
+	<script src="<?php bloginfo('template_url'); ?>/js/form2.js" type="text/javascript"></script>
 	<script src="<?php bloginfo('template_url'); ?>/js/form1.js" type="text/javascript"></script>
 
 <div class="nine columns">
@@ -47,11 +48,10 @@
 				<p><strong>Mostrando un total de <?php echo $count_posts;?> ofertas laborales de perfil art&iacute;stico y t&eacute;cnico.</strong></br>
 				</p>
 				<span class="flecha">Puedes filtrar los resultados por habilidades requeridas <img src="<?php bloginfo('template_url');?>/images/empleo-flecha-filtro.png"></span>
-
 				
 				<div id="filtro">
 				<div class="habilidad">
-					<p>Habilidades art&iacute;sticas</p>
+					<div class="titulo-habilidad">Habilidades art&iacute;sticas</div>
 					<hr class="negro">
 				<?php 
 					$terms = get_terms("habilidad-artistica");
@@ -69,7 +69,7 @@
 				</div>
 				
 				<div class="habilidad">
-					<p>Habilidades t&eacute;cnicas</p>
+					<div class="titulo-habilidad">Habilidades t&eacute;cnicas</div>
 					<hr class="negro">
 				<?php 
 					$terms = get_terms("habilidad-tecnica");
@@ -92,7 +92,7 @@
 				</div>
 
 				<div class="habilidad">
-					<p>Manejo de Software</p>
+					<div class="titulo-habilidad">Manejo de Software</div>
 					<hr class="negro">
 				<?php 
 					$terms = get_terms("habilidad-software");
@@ -145,7 +145,34 @@
 							<hr>
 						</span>
 						<div class="prueba">
+							
+							<?php 
+							
+							$term_list = wp_get_post_terms($post->ID, 'habilidad-artistica', array("fields" => "names"));
+							$name = $term->name;
+							echo $name;
+							
+
+							
+							
+							$term_list = wp_get_post_terms($post->ID, 'habilidad-tecnica', array("fields" => "names"));
+							$name = $term->name;
+							echo $name;
+							
+							
+
+							
+							
+							$term_list = wp_get_post_terms($post->ID, 'habilidad-software', array("fields" => "names"));
+							$name = $term->name;
+							echo $name;
+							
+							?>
+						
+
+
 						<?php the_content(); ?>
+						<?php gravity_form(1, false, false, false, '', true); ?>
 						</div>
 					</div>
 			</article>
@@ -181,7 +208,7 @@
 	<div class="row cuarenta-top">
 <p><strong>&iquest;No has encontrado ninguna oferta que se ajuste a tu perfil?</strong></p>
 <p>No te preocupes en KANDOR Graphics estamos continuamente buscando nuevos talentos para nuestros proyectos. Inscr&iacute;bete en nuestra
-<a href="#" id="windowModal3">Bolsa de Empleo</a> y en cuanto surja una oferta que se ajuste a tu perfil te incluiremos en el proceso de selecci&oacute;n.</p>
+<a href="#" id="windowModal2">Bolsa de Empleo</a> y en cuanto surja una oferta que se ajuste a tu perfil te incluiremos en el proceso de selecci&oacute;n.</p>
 
 <p>Si deseas estar informado acerca de nuestras ofertas de empleo suscr&iacute;bete a esta lista y estar&aacute;s siempre al tanto de nuestros procesos de selecci&oacute;n.</p>
 </div>
@@ -261,24 +288,5 @@ $(document).ready(
 
     });     
 });
-
-$(document).ready(
-    function(){
-    $('#windowModal3').click(function(event) {
-    
-		$('html, body').animate({ scrollTop: 0 }, 'slow');		
-		
-		event.preventDefault();
-        event.stopPropagation();
-		
-		var view = new ModalFormView2();
-        view.render().showModal({
-            y: 20,
-            localWidth: 780
-        });
-
-    });     
-});
-
 
 </script>
