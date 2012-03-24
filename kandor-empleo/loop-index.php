@@ -5,8 +5,6 @@
 	});
 </script>
 
-	<script src="<?php bloginfo('template_url'); ?>/js/form2.js" type="text/javascript"></script>
-	<script src="<?php bloginfo('template_url'); ?>/js/form1.js" type="text/javascript"></script>
 
 <div class="nine columns">
 		<h1><?php _e("<!--:en-->Press<!--:--><!--:es-->Empleo");?></h1>
@@ -148,31 +146,45 @@
 							
 							<?php 
 							
-							$term_list = wp_get_post_terms($post->ID, 'habilidad-artistica', array("fields" => "names"));
-							$name = $term->name;
-							echo $name;
 							
-
+							$term_list = get_the_terms($post->ID, 'habilidad-artistica');
 							
-							
-							$term_list = wp_get_post_terms($post->ID, 'habilidad-tecnica', array("fields" => "names"));
-							$name = $term->name;
-							echo $name;
-							
-							
-
+							foreach ( $term_list as $term ) {
+								echo "<div class=items>"; ?>
+								<input type="checkbox" checked="true" value="" id="<?php echo $term->name;?>">
+								<?php echo $term->name;
+								echo "</div>"; 
+							}
+							?>
+							<?php 
 							
 							
-							$term_list = wp_get_post_terms($post->ID, 'habilidad-software', array("fields" => "names"));
-							$name = $term->name;
-							echo $name;
+							$term_list = get_the_terms($post->ID, 'habilidad-tecnica');
 							
+							foreach ( $term_list as $term ) {
+								echo "<div class=items>"; ?>
+								<input type="checkbox" checked="true" value="" id="<?php echo $term->name;?>">
+								<?php echo $term->name;
+								echo "</div>"; 
+							}
+							?>	
+							<?php 
+							
+							
+							$term_list = get_the_terms($post->ID, 'habilidad-software');
+							
+							foreach ( $term_list as $term ) {
+								echo "<div class=items>"; ?>
+								<input type="checkbox" checked="true" value="" id="<?php echo $term->name;?>">
+								<?php echo $term->name;
+								echo "</div>"; 
+							}
 							?>
 						
 
 
 						<?php the_content(); ?>
-						<?php gravity_form(1, false, false, false, '', true); ?>
+						
 						</div>
 					</div>
 			</article>
@@ -202,7 +214,8 @@
 		<p class="selecciona"><strong>Selecciona las ofertas de la lista y</strong></p>
 	</div>
 	<div class="four columns" id="volver">
-		<a class="nice radius blue button float-right full-width" href="#" id="windowModal1">solicita estos puestos</a>
+	<a class="nice radius blue button float-right full-width" id="form" href="<?php bloginfo();?>/formulario">solicita estos puestos</a>
+
 	</div>
 	</div>
 	<div class="row cuarenta-top">
