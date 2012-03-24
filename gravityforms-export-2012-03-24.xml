@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forms version="1.6.3.3.2">
+	<form labelPlacement="top_label" useCurrentUserAsAuthor="1">
+		<title><![CDATA[Bolsa de empleo]]></title>
+		<confirmation type="redirect">
+			<url><![CDATA[http://localhost/kandor/empleo/]]></url>
+		</confirmation>
+		<button type="text">
+			<text><![CDATA[FINALIZAR]]></text>
+		</button>
+		<fields>
+			<field id="10" size="medium" type="html" displayOnly="1">
+				<content><![CDATA[Hola, gracias por querer formar parte de nuestro equipo.</br></br>
+
+A continuación te mostramos una <strong>lista de habilidades</strong>, por favor <strong>selecciona las que se ajusten a tu perfil</strong> profesional:]]></content>
+			</field>
+			<field id="1" size="medium" type="checkbox" enableChoiceValue="1">
+				<cssClass><![CDATA[check-ha]]></cssClass>
+				<label><![CDATA[Habilidades artísticas]]></label>
+				<choices>
+					<choice>
+						<text><![CDATA[2d painting/texturing]]></text>
+						<value><![CDATA[3]]></value>
+					</choice>
+					<choice>
+						<text><![CDATA[Animation (body mechanics)]]></text>
+						<value><![CDATA[Animation (body mechanics)]]></value>
+					</choice>
+					<choice>
+						<text><![CDATA[Animation (objects)]]></text>
+						<value><![CDATA[Animation (objects)]]></value>
+					</choice>
+					<choice>
+						<text><![CDATA[Animation – FX]]></text>
+						<value><![CDATA[Animation – FX]]></value>
+					</choice>
+					<choice>
+						<text><![CDATA[Animation (Acting)]]></text>
+						<value><![CDATA[Animation (Acting)]]></value>
+					</choice>
+					<choice>
+						<text><![CDATA[Color Artist]]></text>
+						<value><![CDATA[Color Artist]]></value>
+					</choice>
+					<choice>
+						<text><![CDATA[Compositing]]></text>
+						<value><![CDATA[Compositing]]></value>
+					</choice>
+					<choice>
+						<text><![CDATA[Concept design- characters]]></text>
+						<value><![CDATA[Concept design- characters]]></value>
+					</choice>
+					<choice>
+						<text><![CDATA[Concept design- environments]]></text>
+						<value><![CDATA[Concept design- environments]]></value>
+					</choice>
+					<choice>
+						<text><![CDATA[Digital Sculpting]]></text>
+						<value><![CDATA[Digital Sculpting]]></value>
+					</choice>
+					<choice>
+						<text><![CDATA[Editing]]></text>
+						<value><![CDATA[Editing]]></value>
+					</choice>
+					<choice>
+						<text><![CDATA[Lighting]]></text>
+						<value><![CDATA[Lighting]]></value>
+					</choice>
+					<choice>
+						<text><![CDATA[Matte Painitng]]></text>
+						<value><![CDATA[Matte Painitng]]></value>
+					</choice>
+					<choice>
+						<text><![CDATA[Modeling Creatures]]></text>
+						<value><![CDATA[Modeling Creatures]]></value>
+					</choice>
+					<choice>
+						<text><![CDATA[Modelling characters]]></text>
+						<value><![CDATA[Modelling characters]]></value>
+					</choice>
+					<choice>
+						<text><![CDATA[Modelling environment]]></text>
+						<value><![CDATA[Modelling environment]]></value>
+					</choice>
+					<choice>
+						<text><![CDATA[Modelling props]]></text>
+						<value><![CDATA[Modelling props]]></value>
+					</choice>
+					<choice>
+						<text><![CDATA[MotionGraphics]]></text>
+						<value><![CDATA[MotionGraphics]]></value>
+					</choice>
+					<choice>
+						<text><![CDATA[Previz]]></text>
+						<value><![CDATA[Previz]]></value>
+					</choice>
+					<choice>
+						<text><![CDATA[Rendering]]></text>
+						<value><![CDATA[Rendering]]></value>
+					</choice>
+					<choice>
+						<text><![CDATA[Scene Assembler artistic layout ]]></text>
+						<value><![CDATA[Scene Assembler artistic layout ]]></value>
+					</choice>
+					<choice>
+						<text><![CDATA[Story Board ]]></text>
+						<value><![CDATA[Story Board ]]></value>
+					</choice>
+					<choice>
+						<text><![CDATA[Surfacing]]></text>
+						<value><![CDATA[Surfacing]]></value>
+					</choice>
+				</choices>
+			</field>
+			<field id="3" size="medium" type="checkbox">
+				<cssClass><![CDATA[check-ha]]></cssClass>
+				<label><![CDATA[Habilidades técnicas]]></label>
+				<choices>
+					<choice>
+						<text><![CDATA[2d painting/texturing]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Animation (body mechanics)]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Animation (objects)]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Animation – FX]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Animation( Acting)]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Color Artist]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Compositing]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Concept design- characters]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Concept design- environments]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Digital Sculpting]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Editing]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[lighting]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Matte Painitng]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Modeling Creatures]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Modelling characters]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Modelling environment]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Modelling props]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[MotionGraphics]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[previz]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Rendering]]></text>
+					</choice>
+				</choices>
+			</field>
+			<field id="13" size="medium" type="checkbox">
+				<cssClass><![CDATA[check-ha]]></cssClass>
+				<label><![CDATA[Manejo de software]]></label>
+				<choices>
+					<choice>
+						<text><![CDATA[Adobe premiere]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[After Effects]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Arnold]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Autodesk 3ds Max]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Autodesk XSI]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Avid]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Final Cut]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Fusion]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Hudini]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[ICE]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Illustrator]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[InDesign]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[MEL]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Mental Ray]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Modo]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Mudbox]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Nuke]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Photoshop]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Python]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Renderman]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[V-ray]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[XSI Script]]></text>
+					</choice>
+					<choice>
+						<text><![CDATA[Zbrush]]></text>
+					</choice>
+				</choices>
+			</field>
+			<field id="2" size="medium" type="page" displayOnly="1">
+				<nextButton type="text">
+					<text><![CDATA[PASO 2]]></text>
+				</nextButton>
+				<previousButton type="text">
+					<text><![CDATA[Previous]]></text>
+				</previousButton>
+			</field>
+			<field id="14" size="medium" type="html" displayOnly="1">
+				<content><![CDATA[Por favor rellena el siguiente formulario para que podamos contactar contigo:]]></content>
+				<label><![CDATA[HTML Block]]></label>
+			</field>
+			<field id="4" isRequired="1" size="medium" type="name">
+				<label><![CDATA[Nombre]]></label>
+				<inputs>
+					<input id="4.3">
+						<label><![CDATA[First]]></label>
+					</input>
+					<input id="4.6">
+						<label><![CDATA[Last]]></label>
+					</input>
+				</inputs>
+			</field>
+			<field id="5" isRequired="1" size="medium" type="email">
+				<label><![CDATA[Email]]></label>
+			</field>
+			<field id="6" size="medium" type="website">
+				<label><![CDATA[Enlace a blog]]></label>
+			</field>
+			<field id="7" size="medium" type="website">
+				<label><![CDATA[Enlace a reel]]></label>
+			</field>
+			<field id="8" isRequired="1" size="medium" type="fileupload">
+				<label><![CDATA[Curriculum]]></label>
+				<allowedExtensions><![CDATA[pdf, doc, docx]]></allowedExtensions>
+			</field>
+			<field id="11" size="medium" type="page" displayOnly="1">
+				<nextButton type="text">
+					<text><![CDATA[PASO 3 (último)]]></text>
+				</nextButton>
+				<previousButton type="text">
+					<text><![CDATA[Previous]]></text>
+				</previousButton>
+			</field>
+			<field id="12" size="medium" type="html" displayOnly="1">
+				<content><![CDATA[<strong>¡Muchas gracias por tu interés en formar parte del Equipo KANDOR Graphics!</strong></br></br>
+
+Ya tenemos toda la información necesaria para incluirte en nuestro proceso de selección. Será valorada por el Director de Departamento y estaremos encantados de contactar contigo, en caso de que seas preseleccionado.</br></br>
+
+Si quieres añadir alguna cosa más, como una carta de presentación, recomendaciones o referencias... introdúcelo a continuación o ve directamente al botón de finalizar.</br>]]></content>
+				<label><![CDATA[HTML Block]]></label>
+			</field>
+			<field id="9" size="medium" type="textarea">
+				<label><![CDATA[Comentarios]]></label>
+			</field>
+			<field id="15" size="medium" type="hidden">
+				<defaultValue><![CDATA[{embed_post:ID}]]></defaultValue>
+				<label><![CDATA[Referencia id]]></label>
+			</field>
+			<field id="16" size="medium" type="hidden">
+				<defaultValue><![CDATA[{embed_post:post_title}]]></defaultValue>
+				<label><![CDATA[Referencia]]></label>
+			</field>
+		</fields>
+		<descriptionPlacement><![CDATA[below]]></descriptionPlacement>
+		<enableHoneypot><![CDATA[1]]></enableHoneypot>
+		<enableAnimation><![CDATA[1]]></enableAnimation>
+		<lastPageButton type="text">
+			<text><![CDATA[ANTERIOR]]></text>
+		</lastPageButton>
+		<pagination type="none">
+		</pagination>
+		<notification>
+			<to><![CDATA[{admin_email}]]></to>
+			<subject><![CDATA[New submission from {form_title}]]></subject>
+			<message><![CDATA[{all_fields}]]></message>
+		</notification>
+	</form>
+</forms>
