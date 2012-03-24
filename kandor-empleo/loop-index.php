@@ -182,7 +182,7 @@
 	<div class="row cuarenta-top">
 <p><strong>&iquest;No has encontrado ninguna oferta que se ajuste a tu perfil?</strong></p>
 <p>No te preocupes en KANDOR Graphics estamos continuamente buscando nuevos talentos para nuestros proyectos. Inscr&iacute;bete en nuestra
-<a href="#" id="windowModal2">Bolsa de Empleo</a> y en cuanto surja una oferta que se ajuste a tu perfil te incluiremos en el proceso de selecci&oacute;n.</p>
+<a href="#" id="windowModal3">Bolsa de Empleo</a> y en cuanto surja una oferta que se ajuste a tu perfil te incluiremos en el proceso de selecci&oacute;n.</p>
 
 <p>Si deseas estar informado acerca de nuestras ofertas de empleo suscr&iacute;bete a esta lista y estar&aacute;s siempre al tanto de nuestros procesos de selecci&oacute;n.</p>
 </div>
@@ -262,5 +262,24 @@ $(document).ready(
 
     });     
 });
+
+$(document).ready(
+    function(){
+    $('#windowModal3').click(function(event) {
+    
+		$('html, body').animate({ scrollTop: 0 }, 'slow');		
+		
+		event.preventDefault();
+        event.stopPropagation();
+		
+		var view = new ModalFormView2();
+        view.render().showModal({
+            y: 20,
+            localWidth: 780
+        });
+
+    });     
+});
+
 
 </script>

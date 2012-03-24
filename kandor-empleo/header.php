@@ -41,7 +41,6 @@
 	<script src="<?php bloginfo('template_url'); ?>/js/jquery.iframe-transport.js" type="text/javascript"></script>
 	<script src="<?php bloginfo('template_url'); ?>/js/jquery.fileupload.js" type="text/javascript"></script>
 	<script src="<?php bloginfo('template_url'); ?>/js/jquery-ui-1.8.17.custom.min.js" type="text/javascript"></script>
-    <script src="<?php bloginfo('template_url'); ?>/js/form.js" type="text/javascript"></script> 
 
 
 	<?php wp_head(); ?>

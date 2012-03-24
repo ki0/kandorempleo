@@ -14,7 +14,7 @@
     
     var myColArtBox = Backbone.Collection.extend({
         model: myArtBox,
-        url: '/kandor/empleo//?json=get_taxonomies_index&taxonomy=habilidad-artistica',
+        url: '/wordpress/?json=get_taxonomies_index&taxonomy=habilidad-artistica',
         parse: function (resp) {
             return _.map( resp.terms, function( item ){
               return {
@@ -27,7 +27,7 @@
 
     var myColTecBox = Backbone.Collection.extend({
         model: myTecBox,
-        url: '/kandor/empleo/?json=get_taxonomies_index&taxonomy=habilidad-tecnica',
+        url: '/wordpress/?json=get_taxonomies_index&taxonomy=habilidad-tecnica',
         parse: function (resp) {
             return _.map( resp.terms, function( item ){
               return {
@@ -40,7 +40,7 @@
 
     var myColSofBox = Backbone.Collection.extend({
         model: mySofBox,
-        url: '/kandor/empleo/?json=get_taxonomies_index&taxonomy=habilidad-software',
+        url: '/wordpress/?json=get_taxonomies_index&taxonomy=habilidad-software',
         parse: function (resp) {
             return _.map( resp.terms, function( item ){
               return {
@@ -227,8 +227,9 @@
 
         end: function (){
             $('#step3').hide();
+            console.log(this);
+            $('#modalContainer').hide();
         }
-        
     });
 
     ModalFormView2 = ModalView.extend({
