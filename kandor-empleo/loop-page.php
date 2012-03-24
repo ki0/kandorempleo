@@ -1,4 +1,4 @@
-<div class="eight columns">
+<div class="nine columns">
 
 <!-- Skip Nav -->
 <a id="content"></a>

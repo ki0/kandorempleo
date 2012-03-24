@@ -28,8 +28,7 @@
 	<script src="<?php bloginfo('template_url'); ?>/javascripts/jquery.ui.totop.js"></script>
 	<script src="<?php bloginfo('template_url'); ?>/javascripts/app.js"></script>
 	
-	
-    <script src="<?php bloginfo('template_url'); ?>/js/json2.js" type="text/javascript"></script>
+	<script src="<?php bloginfo('template_url'); ?>/js/json2.js" type="text/javascript"></script>
 	<script src="<?php bloginfo('template_url'); ?>/js/underscore-min.js" type="text/javascript"></script>
 	<script src="<?php bloginfo('template_url'); ?>/js/backbone-min.js" type="text/javascript"></script>
 	<script src="<?php bloginfo('template_url'); ?>/js/backbone-forms.js" type="text/javascript"></script>
@@ -43,7 +42,9 @@
 	<script src="<?php bloginfo('template_url'); ?>/js/jquery-ui-1.8.17.custom.min.js" type="text/javascript"></script>
 
 
+
 	<?php wp_head(); ?>
+	
 </head>
 
 <body <?php body_class(); ?>>

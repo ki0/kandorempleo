@@ -139,7 +139,7 @@
 			<article>
 					<div class="demo-2">
 						<span class="oferta"><?php the_title();?> <span class="departamento"><?php echo strip_tags($tipos_list);?></span>
-							<input class="float-right" type="checkbox" value="" id="">
+							<input class="float-right" type="checkbox" value="<?php the_id();?>" id="<?php the_title();?>">
 							<hr>
 						</span>
 						<div class="prueba">
@@ -214,7 +214,8 @@
 		<p class="selecciona"><strong>Selecciona las ofertas de la lista y</strong></p>
 	</div>
 	<div class="four columns" id="volver">
-	<a class="nice radius blue button float-right full-width" id="form" href="<?php bloginfo();?>/formulario">solicita estos puestos</a>
+	
+	<a class="nice radius blue button float-right full-width" id="form" href="<?php bloginfo();?>/formulario?id=">solicita estos puestos</a>
 
 	</div>
 	</div>
@@ -232,6 +233,11 @@
 </div>
 </div>
 
+<script type="text/javascript">
+	// $("#oferta").change(function(){
+	// $(this).is(‘:checked’)
+	// });
+</script>
 
 <script type="text/javascript">
 $(".demo-2").collapse({show: function(){
@@ -264,42 +270,5 @@ $(".demo-1").collapse({show: function(){
 	    }
 	});
 </script>
-
-<script type="text/javascript">
-$(document).ready(
-    function(){
-    $('#windowModal1').click(function(event) {
-
-		$('html, body').animate({ scrollTop: 0 }, 'slow');
-		
-		event.preventDefault();
-        event.stopPropagation();
-		
-		var view = new ModalFormView1();
-        view.render().showModal({
-            y: 20,
-            localWidth: 780
-        });
-
-    });     
-});
-
-$(document).ready(
-    function(){
-    $('#windowModal2').click(function(event) {
-    
-		$('html, body').animate({ scrollTop: 0 }, 'slow');		
-		
-		event.preventDefault();
-        event.stopPropagation();
-		
-		var view = new ModalFormView2();
-        view.render().showModal({
-            y: 20,
-            localWidth: 780
-        });
-
-    });     
-});
 
 </script>

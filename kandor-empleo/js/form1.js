@@ -26,7 +26,7 @@
     
     var myColArtBox = Backbone.Collection.extend({
         model: myArtBox,
-        url: '/wordpress/ofertas/matte-painting-artist/?json=get_taxonomy&taxonomy=habilidad-artistica',
+        url: '/kandor/empleo/ofertas/senior-matte-painting-artist/?json=get_taxonomy&taxonomy=habilidad-artistica',
         parse: function (resp) {
             return _.map( resp.terms, function( item ){
               return {
@@ -39,7 +39,7 @@
 
     var myColTecBox = Backbone.Collection.extend({
         model: myTecBox,
-        url: '/wordpress/ofertas/matte-painting-artist/?json=get_taxonomy&taxonomy=habilidad-tecnica',
+        url: '/kandor/empleo/ofertas/senior-matte-painting-artist/?json=get_taxonomy&taxonomy=habilidad-tecnica',
         parse: function (resp) {
             return _.map( resp.terms, function( item ){
               return {
@@ -52,7 +52,7 @@
 
     var myColSofBox = Backbone.Collection.extend({
         model: mySofBox,
-        url: '/wordpress/ofertas/matte-painting-artist/?json=get_taxonomy&taxonomy=habilidad-software',
+        url: '/kandor/empleo/ofertas/senior-matte-painting-artist/?json=get_taxonomy&taxonomy=habilidad-software',
         parse: function (resp) {
             return _.map( resp.terms, function( item ){
               return {
@@ -65,7 +65,7 @@
     
     var allColArtBox = Backbone.Collection.extend({
         model: allArtBox,
-        url: '/wordpress/?json=get_taxonomies_index&taxonomy=habilidad-artistica',
+        url: '/kandor/empleo//?json=get_taxonomies_index&taxonomy=habilidad-artistica',
         parse: function (resp) {
             return _.map( resp.terms, function( item ){
               return {
@@ -78,7 +78,7 @@
 
     var allColTecBox = Backbone.Collection.extend({
         model: allTecBox,
-        url: '/wordpress/?json=get_taxonomies_index&taxonomy=habilidad-tecnica',
+        url: '/kandor/empleo/?json=get_taxonomies_index&taxonomy=habilidad-tecnica',
         parse: function (resp) {
             return _.map( resp.terms, function( item ){
               return {
@@ -91,7 +91,7 @@
 
     var allColSofBox = Backbone.Collection.extend({
         model: allSofBox,
-        url: '/wordpress/?json=get_taxonomies_index&taxonomy=habilidad-software',
+        url: '/kandor/empleo/?json=get_taxonomies_index&taxonomy=habilidad-software',
         parse: function (resp) {
             return _.map( resp.terms, function( item ){
               return {
@@ -155,6 +155,7 @@
 
         initialize: function (){
             _.bindAll(this, 'render', 'next', 'more', 'less');
+            console.log(List.attributes);
             this.render();
         },
 
@@ -312,9 +313,6 @@
 
         end: function (){
             $('#step3').hide();
-            console.log(this);
-            $('#modalContainer').hide();
-            $('#modalContainer').fadeOut();
         }
         
     });
