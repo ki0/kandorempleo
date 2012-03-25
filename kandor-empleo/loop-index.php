@@ -144,42 +144,7 @@
 						</span>
 						<div class="prueba">
 							
-							<?php 
-							
-							
-							$term_list = get_the_terms($post->ID, 'habilidad-artistica');
-							
-							foreach ( $term_list as $term ) {
-								echo "<div class=items>"; ?>
-								<input type="checkbox" checked="true" value="" id="<?php echo $term->name;?>">
-								<?php echo $term->name;
-								echo "</div>"; 
-							}
-							?>
-							<?php 
-							
-							
-							$term_list = get_the_terms($post->ID, 'habilidad-tecnica');
-							
-							foreach ( $term_list as $term ) {
-								echo "<div class=items>"; ?>
-								<input type="checkbox" checked="true" value="" id="<?php echo $term->name;?>">
-								<?php echo $term->name;
-								echo "</div>"; 
-							}
-							?>	
-							<?php 
-							
-							
-							$term_list = get_the_terms($post->ID, 'habilidad-software');
-							
-							foreach ( $term_list as $term ) {
-								echo "<div class=items>"; ?>
-								<input type="checkbox" checked="true" value="" id="<?php echo $term->name;?>">
-								<?php echo $term->name;
-								echo "</div>"; 
-							}
-							?>
+
 						
 
 
@@ -205,7 +170,7 @@
   		<li id="nice2Tab"><!-- otros perfiles -->
   			
   		<p>Lo sentimos, pero no tenemos procesos de selecci&oacute;n abiertos para Otros Perfiles.</p>
-		<p>Si est&aacute;s interesado en puestos <strong>Administrativos, Comerciales, Marketing, RRHH, Producci&oacute;n, Finanzas, IT, </strong>etc... puedes inscribirte en nuestra <a href="<?php bloginfo();?>/bolsadeempleo" id="bolsadeempleo1">Bolsa de Empleo</a> y en cuanto surja una oferta que se ajuste a tu perfil te incluiremos en el proceso de selecci&oacute;n.</p>
+		<p>Si est&aacute;s interesado en puestos <strong>Administrativos, Comerciales, Marketing, RRHH, Producci&oacute;n, Finanzas, IT, </strong>etc... puedes inscribirte en nuestra <a href="#" id="windowModal2">Bolsa de Empleo</a> y en cuanto surja una oferta que se ajuste a tu perfil te incluiremos en el proceso de selecci&oacute;n.</p>
   			
 		</li>
 	</ul>
@@ -216,13 +181,14 @@
 	<div class="four columns" id="volver">
 	
 	<a class="nice radius blue button float-right full-width" id="form" href="<?php bloginfo();?>/formulario?id=">solicita estos puestos</a>
+	<input type="button" onclick="javascript:checkbox_test()" value="Test">
 
 	</div>
 	</div>
 	<div class="row cuarenta-top">
 <p><strong>&iquest;No has encontrado ninguna oferta que se ajuste a tu perfil?</strong></p>
 <p>No te preocupes en KANDOR Graphics estamos continuamente buscando nuevos talentos para nuestros proyectos. Inscr&iacute;bete en nuestra
-<a href="<?php bloginfo();?>/bolsadeempleo" id="bolsadeempleo2">Bolsa de Empleo</a> y en cuanto surja una oferta que se ajuste a tu perfil te incluiremos en el proceso de selecci&oacute;n.</p>
+<a href="#" id="windowModal2">Bolsa de Empleo</a> y en cuanto surja una oferta que se ajuste a tu perfil te incluiremos en el proceso de selecci&oacute;n.</p>
 
 <p>Si deseas estar informado acerca de nuestras ofertas de empleo suscr&iacute;bete a esta lista y estar&aacute;s siempre al tanto de nuestros procesos de selecci&oacute;n.</p>
 </div>
@@ -234,9 +200,34 @@
 </div>
 
 <script type="text/javascript">
-	// $("#oferta").change(function(){
-	// $(this).is(‘:checked’)
-	// });
+	function checkbox_test() {
+    var counter = 0, // counter for checked checkboxes
+        i = 0,       // loop variable
+        url = '',    // final url string
+        // get a collection of objects with the specified 'input' TAGNAME
+        input_obj = document.getElementsByTagName('input');
+    // loop through all collected objects
+    for (i = 0; i < input_obj.length; i++) {
+        // if input object is checkbox and checkbox is checked then ...
+        if (input_obj[i].type === 'checkbox' && input_obj[i].checked === true) {
+            // ... increase counter and concatenate checkbox value to the url string
+            counter++;
+            url = url + '&?id=' + input_obj[i].value;
+        }
+    }
+    // display url string or message if there is no checked checkboxes
+    if (counter > 0) {
+        // remove first "&" from the generated url string
+        url = url.substr(1);
+        // display final url string
+        alert(url);
+        // or you can send checkbox values
+        window.location.href = 'formulario?' + url; 
+    }
+    else {
+        alert('Debes selecionar al menos una oferta');
+    }
+}
 </script>
 
 <script type="text/javascript">
