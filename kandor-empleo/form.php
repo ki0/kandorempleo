@@ -4,13 +4,14 @@
 	*/
 	?>
 
-<?php get_header(); ?>
+<?php wp_head(); ?>
+<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>">
 
 <?php $id = $_GET['id'];?>
 
 <article>
         <div class="demo-2">
-            <div class="prueba">
+            <div class="prueba" id="habilidades" style="display: block">
                 
                 <?php 
                 
@@ -48,10 +49,17 @@
                     echo "</div>"; 
                 }
                 ?>
-                <?php gravity_form (1,false,false,false,'',true); ?>
             </div>
+            <?php gravity_form (1,false,false,false,'',true); ?>
         </div>
 </article>
-
-
-<?php get_footer(); ?>
+</div>
+</div>
+<?php wp_footer(); ?>
+</body>
+</html>
+<script type="text/javascript">
+jQuery('#gform_next_button_1_2').bind("click", function(){
+    jQuery('#habilidades').hide();
+});
+</script>
