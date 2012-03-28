@@ -10,13 +10,10 @@
 <?php $id = $_GET['id'];?>
 
 <article>
-        <div class="demo-2">
-            <div class="prueba" id="habilidades" style="display: block">
-                
-                <?php 
-                
-                
-                $term_list = get_the_terms($id, 'habilidad-artistica');
+        <div class="form-offers">
+            <div class="skills" id="habilidades" style="display: block">
+				<?php 
+				$term_list = get_the_terms($id, 'habilidad-artistica');
                 
                 foreach ( $term_list as $term ) {
                     echo "<div class=items>"; ?>
@@ -26,8 +23,6 @@
                 }
                 ?>
                 <?php 
-                
-                
                 $term_list = get_the_terms($id, 'habilidad-tecnica');
                 
                 foreach ( $term_list as $term ) {
@@ -38,8 +33,6 @@
                 }
                 ?>	
                 <?php 
-                
-                
                 $term_list = get_the_terms($id, 'habilidad-software');
                 
                 foreach ( $term_list as $term ) {
@@ -50,14 +43,17 @@
                 }
                 ?>
             </div>
+            
             <?php gravity_form (1,false,false,false,'',true); ?>
+            
         </div>
 </article>
-</div>
-</div>
+
+
 <?php wp_footer(); ?>
 </body>
 </html>
+
 <script type="text/javascript">
 jQuery('#gform_next_button_1_2').bind("click", function(){
     jQuery('#habilidades').hide();

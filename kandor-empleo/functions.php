@@ -704,7 +704,6 @@ function generate_taxonomy_options($tax_slug, $parent = '', $level = 0) {
 
 }
 
-
 add_action("manage_posts_custom_column",  "portfolio_custom_columns");
 add_filter("manage_edit-ofertas_columns", "portfolio_edit_columns");
  
@@ -750,17 +749,23 @@ function portfolio_custom_columns($column){
 }
 
 
+function myfeed_request($qv) {
+	if (isset($qv['feed']) && !isset($qv['post_type']))
+		$qv['post_type'] = array('ofertas');
+	return $qv;
+}
+add_filter('request', 'myfeed_request');
 
 
 
+add_filter("gform_field_value_idpost", "populate_idpost");
+function populate_idpost($value){
+   return $id;
+}
 
-
-
-
-
-
-
-
-
+add_filter("gform_field_value_name", "populate_name");
+function populate_name($value){
+   return $name;
+}
 
 ?>

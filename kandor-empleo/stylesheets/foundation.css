@@ -204,7 +204,7 @@
 	hr{border: thin dotted #FF7A00; border-width: 1px 0 0; clear: both; margin: 12px 0 18px; height: 0;}
 	
 	em, i { font-style: italic; line-height: inherit; }
-	strong, b { font-weight: bold; line-height: inherit; }
+	strong, b { font-family: sanchez-bold; line-height: inherit; }
 	small { font-size: 60%; line-height: inherit; }
 	
 	h1 small, h2 small, h3 small, h4 small, h5 small { color: #777; }
@@ -412,8 +412,8 @@
 	Buttons
 	-------------------------------------------------- */
 
-.button {
-		background: #00a6fc;
+	.button {
+		background: #FF7A00;
 		display: inline-block;
 		text-align: center;
 		padding: 9px 30px 8px;
@@ -428,11 +428,7 @@
 		float: right;
 	}
 	
-	.button2 {
-		color: #000 !important;
-	}
-	
-  	/* Don't use native buttons on iOS */
+	/* Don't use native buttons on iOS */
 	input[type=submit].button, button.button { -webkit-appearance: none; }
 	
 	.button.nice { 
@@ -448,26 +444,13 @@
 		-moz-transition: background-color .15s ease-in-out;
 		-o-transition: background-color .15s ease-in-out;
 	}
-	
-	.button.nice2 { 
-		background: #00a6fc url(../images/misc/button-gloss.png) repeat-x 0 -34px;
-		-moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.5);
-		-webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.5);
-		box-shadow: inset 0 1px 0 rgba(255,255,255,.5);
-		text-shadow: 0 -1px 1px rgba(0,0,0,0.28);
-		background: #00a6fc url(../images/misc/button-gloss.png) repeat-x 0 -34px, -moz-linear-gradient(top, rgba(255,255,255,.4) 0%, transparent 100%);
-		background: #00a6fc url(../images/misc/button-gloss.png) repeat-x 0 -34px, -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,.4)), color-stop(100%,transparent));
-		border: 1px solid #d4cd9c;
-		-webkit-transition: background-color .15s ease-in-out;
-		-moz-transition: background-color .15s ease-in-out;
-		-o-transition: background-color .15s ease-in-out;
-	}
 
 	.button.radius {
 		-moz-border-radius: 3px;
 		-webkit-border-radius: 3px;
 		border-radius: 3px;
 	}
+	
 	.button.radius2 {
 		-moz-border-radius: 14px;
 		-webkit-border-radius: 14px;
@@ -519,7 +502,7 @@
 	a.nice2.brown.button 	{ font-size: 10px; text-transform: uppercase; font-weight:14px;}
 	
 	/* Hovers ---------- */
-	.button:hover, .button:focus 				{ background-color: #0192dd; color: #fff; }
+	.button:hover, .button:focus 				{ background-color: #FF7A00; color: #fff; }
 	.blue.button:hover, .blue.button:focus		{ background-color: #F89A51; }
 	
 	.brown.button:hover, .brown.button:focus	{ background-color: #e9e4b8; }
@@ -823,7 +806,7 @@
 ----------------------------------------- */
 
 	form { margin: 0 0 18px; }
-	form label { display: block; font-size: 13px; line-height: 18px; cursor: pointer; margin-bottom: 9px; }
+	form label { display: block; line-height: 18px; cursor: pointer; margin-bottom: 9px; }
 
 	input.input-text, textarea { border-right: 1px solid #bbb; border-bottom: 1px solid #bbb; }
 	input.input-text, textarea, select { display: block; margin-bottom: 9px; }
@@ -1275,7 +1258,7 @@ ul.orbit-bullets li.active.has-thumb {
 		h4 { font-size: 18px; font-size: 1.8rem; line-height: 1.2; }
 		h5 { font-size: 16px; font-size: 1.6rem; line-height: 1.2; }
 		h6 { font-size: 15px; font-size: 1.5rem; line-height: 1.2; }
-		body, p {  font-size: 15px; font-size: 1.5rem; line-height: 1.4; }
+		body, p {  font-size: 15px; line-height: 1.4; }
 	}
 
 
@@ -2573,11 +2556,6 @@ ul.ul_footer  {
 	height: 150px;
 	}
 
-	label {
-	font-family: sanchez;
-	font-size: 13px;
-	}
-
 	.flecha {
 	font-family: sanchez;
 	font-size: 15px;
@@ -2589,7 +2567,7 @@ ul.ul_footer  {
 	
 	.selecciona {
 	margin-top: 20px;
-	margin-left: 90px;
+	margin-left: 110px;
 	}
 	
 	ul #skills1  {
@@ -2713,65 +2691,45 @@ ul.ul_footer  {
 	    height:auto;
 	}
 
-	ul #input_1_1 li {
+	ul #input_1_1 li, ul #input_1_3 li, ul #input_1_13 li, ul #input_2_13 li, ul #input_2_1 li, ul #input_2_3 li  {
 		font-family: Sanchez;
 		font-size: 11px;
-		width: 205px;
+		width: 195px;
 		margin: 0px 10px 10px 0px;
 		float: left;
 	}
 	
-	ul #input_1_3 li {
-		font-family: Sanchez;
-		font-size: 11px;
-		width: 205px;
-		margin: 0px 10px 10px 0px;
-		float: left;	}
-	
-	ul #input_1_13 li {
-		font-family: Sanchez;
-		font-size: 11px;
-		width: 205px;
-		margin: 0px 10px 10px 0px;
-		float: left;
+	ul#gform_fields_1, ul#gform_fields_2 {
+		margin-left: 15px;
+		margin-right: 15px;
 	}
 	
-	ul #input_1_13 {
-		height: 250px;
+	ul.gform_fields {
+		margin-left: 15px !important;
+		margin-right: 15px !important;
 	}
-	
-	ul#gform_fields_1 {
-/* 		background-image: url("../images/titular2v_fondo.png"); */
-		background-repeat: repeat;
-		background-position: 0px 110px;
-		height: 950px;
-	}
-	
-	ul#gform_fields_1.top_label {
-/* 		background-image: url("../images/titular2v_fondo.png"); */
-		background-repeat: repeat;
-
-	}
-	
+		
 	.gform_page_fields {
-		background-image: url("../images/titular2v_fondo.png");
-		background-repeat: repeat;
-		background-position: 0px 110px;
+/* 		background-image: url("../images/titular2v_fondo.png"); */
+/* 		background-repeat: repeat; */
+/* 		background-position: 0px 110px; */
 		padding-bottom: 20px;
 	}
 	
 	li#field_1_10, li#field_1_14, li#field_1_12 {
 
-		padding: 10px 15px 30px 10px;
+		padding: 10px 15px 30px 0px;
 		margin-bottom: 20px;
 		margin-left: 0px;
 		margin-right: 0px;
 		
 	}
 	
-	li#field_1_1, li#field_1_3, li#field_1_4, li#field_1_5, li#field_1_6, li#field_1_7, li#field_1_8, li#field_1_9, li#field_1_13 {
-		margin-left: 15px;
-		margin-right: 15px;
+	li#field_1_14 {
+/* 		background-color: #FFF; */
+/* 		padding-left: 15px; */
+/* 		padding-right: 15px; */
+	
 	}
 	
 	.check-ha {
@@ -2790,7 +2748,7 @@ ul.ul_footer  {
 	
 	}
 	
-	#gform_previous_button_1_11 {
+	#gform_previous_button_1_11, #gform_previous_button_2_11 {
 	display: none;
 	}
 	
@@ -2802,6 +2760,81 @@ ul.ul_footer  {
 	clear: both;
 	}
 	
+	#habilidades {
+	background-color: #FFF;
+	margin-left: 15px;
+/* 	background-image: url("../images/titular2v_fondo.png"); */
+/* 	background-repeat: repeat; */
+
+	}
+	
+	.form-offers {
+	padding-top: 15px;
+	background-color: #FFF;
+	padding-bottom: 15px;
+	
+	
+	}
+	
+	.puestos-info p {
+	font-family: sanchez;
+	font-size: 15px;
+	margin-left: 15px;
+	width: 640px;
+
+	}
+	
+	.gfield_label {
+	font-size: 15px;
+	}
+	
+	.gform_page_footer {
+	clear: both;
+	border-top: none !important;
+	width: 100% !important;
+	padding: 0px !important;
+	margin: 0px !important;
+	}
+	
+	.gform_page_footer input {
+	margin: 20px 20px 20px 0px;
+	}
+	
+	.gform_wrapper {
+	max-width: 100% !important;
+	width: 100%;
+	}
+	
+	.demo-3 {
+		clear: both;
+		margin-top: 15px;
+		display: block;
+	}
+	
+	#gform_1 {
+	background-image: url("../images/titular2v_fondo.png"); */
+	background-repeat: repeat;
+	margin: 0px !important;
+	padding-bottom: 80px;
+	
+	}
+	
+	
+	.more-skills {
+		width: 20px;
+		text-align: center;
+		margin-left: 200px;
+	}
+	
+	
+	.gform_wrapper ul.gfield_radio li input[type="radio"]:checked + label, .gform_wrapper ul.gfield_checkbox li input[type="checkbox"]:checked + label {
+	font-weight: normal !important;
+	}
+	
+	.active-empleo, #otros-perfilesTab {
+	background-color: #fff;
+	}
+		
 	/*h3 {line-height:1;}
 	h3 {padding: 5px; cursor:pointer; background: #eee url("state.gif") no-repeat 100% 5px; display:block; text-decoration:none; margin:0; margin-top:10px;}  
 	h3 a {color: #000; text-decoration:none;}*/

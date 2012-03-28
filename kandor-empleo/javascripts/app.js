@@ -26,29 +26,29 @@ $(document).ready(function () {
 	/* Remove if you don't need :) */
 
 	function activateTab($tab) {
-	  var $activeTab = $tab.closest('dl').find('a.active-empleo'),
-	      contentLocation = $tab.attr("href") + 'Tab';
+		var $activeTab = $tab.closest('dl').find('a.active-empleo'),
+				contentLocation = $tab.attr("href") + 'Tab';
 
-	  //Make Tab Active
-	  $activeTab.removeClass('active-empleo');
-	  $tab.addClass('active-empleo');
+		//Make Tab Active
+		$activeTab.removeClass('active-empleo');
+		$tab.addClass('active-empleo');
 
-    //Show Tab Content
-		$(contentLocation).closest('.tabs-content').find('li').hide();
-		$(contentLocation).show();
+    	//Show Tab Content
+		$(contentLocation).closest('.tabs-content').children('li').hide();
+		$(contentLocation).css('display', 'block');
 	}
 
 	$('dl.tabs').each(function () {
 		//Get all tabs
 		var tabs = $(this).children('dd').children('a');
 		tabs.click(function (e) {
-		  activateTab($(this));
+			activateTab($(this));
 		});
 	});
 
 	if (window.location.hash) {
-    activateTab($('a[href="' + window.location.hash + '"]'));
-  }
+		activateTab($('a[href="' + window.location.hash + '"]'));
+	}
 
 	/* PLACEHOLDER FOR FORMS ------------- */
 	/* Remove this and jquery.placeholder.min.js if you don't need :) */

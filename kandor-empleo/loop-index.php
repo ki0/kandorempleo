@@ -33,12 +33,12 @@
 <div class="row">		
 	<div class="nine columns cuarenta-top">
 		<dl class="nice contained tabs">
-			<dd><a href="" class="active-empleo">perfil art&iacute;stico y t&eacute;cnico</a></dd>
-			<dd><a href="#nice2">otros perfiles </a></dd>
+			<dd><a href="#perfil-artistico-tecnico" class="active-empleo">perfil art&iacute;stico y t&eacute;cnico</a></dd>
+			<dd><a href="#otros-perfiles">otros perfiles</a></dd>
 		</dl>
 
 	<ul class="nice tabs-content contained">
-		<li class="active-empleo" id="perfin-artistico-tecnico"> <!-- perfil artistico tecnico -->
+		<li class="active-empleo" id="perfil-artistico-tecnicoTab"> <!-- perfil artistico tecnico -->
 			<?php $count_posts = wp_count_posts( 'ofertas' )->publish;?> <!-- /numero de ofertar publicadas/ -->
 			
 			<div class="row" id="mostrar">
@@ -143,13 +143,8 @@
 							<hr>
 						</span>
 						<div class="prueba">
-							
+							<?php the_content(); ?>
 
-						
-
-
-						<?php the_content(); ?>
-						
 						</div>
 					</div>
 			</article>
@@ -167,10 +162,10 @@
 			<!-- End Pagination -->
 			</li>
   
-  		<li id="nice2Tab"><!-- otros perfiles -->
+  		<li id="otros-perfilesTab"><!-- otros perfiles -->
   			
   		<p>Lo sentimos, pero no tenemos procesos de selecci&oacute;n abiertos para Otros Perfiles.</p>
-		<p>Si est&aacute;s interesado en puestos <strong>Administrativos, Comerciales, Marketing, RRHH, Producci&oacute;n, Finanzas, IT, </strong>etc... puedes inscribirte en nuestra <a href="#" id="bolsadeempleo1">Bolsa de Empleo</a> y en cuanto surja una oferta que se ajuste a tu perfil te incluiremos en el proceso de selecci&oacute;n.</p>
+		<p>Si est&aacute;s interesado en puestos <strong>Administrativos, Comerciales, Marketing, RRHH, Producci&oacute;n, Finanzas, IT, </strong>etc... puedes inscribirte en nuestra <a href="http://localhost/kandor/empleo/bolsa-de-empleo" id="bolsadeempleo2">Bolsa de Empleo</a> y en cuanto surja una oferta que se ajuste a tu perfil te incluiremos en el proceso de selecci&oacute;n.</p>
   			
 		</li>
 	</ul>
@@ -178,16 +173,14 @@
 	<div class="five columns">
 		<p class="selecciona"><strong>Selecciona las ofertas de la lista y</strong></p>
 	</div>
-	<div class="four columns" id="volver">
-	
-	<a class="nice radius blue button float-right full-width" id="form">solicita estos puestos</a>
-
+		<div class="four columns" id="volver">
+			<a class="nice radius blue button float-right full-width" id="form">solicita estos puestos  <img style="vertical-align:bottom;padding-left: 10px;" width="17" height="18" src="../images/orbit/right-arrow.png"></a>
 	</div>
 	</div>
 	<div class="row cuarenta-top">
 <p><strong>&iquest;No has encontrado ninguna oferta que se ajuste a tu perfil?</strong></p>
 <p>No te preocupes en KANDOR Graphics estamos continuamente buscando nuevos talentos para nuestros proyectos. Inscr&iacute;bete en nuestra
-<a href="#" id="bolsadeempleo2">Bolsa de Empleo</a> y en cuanto surja una oferta que se ajuste a tu perfil te incluiremos en el proceso de selecci&oacute;n.</p>
+<a href="http://localhost/kandor/empleo/bolsa-de-empleo" id="bolsadeempleo1">Bolsa de Empleo</a> y en cuanto surja una oferta que se ajuste a tu perfil te incluiremos en el proceso de selecci&oacute;n.</p>
 
 <p>Si deseas estar informado acerca de nuestras ofertas de empleo suscr&iacute;bete a esta lista y estar&aacute;s siempre al tanto de nuestros procesos de selecci&oacute;n.</p>
 </div>
@@ -200,20 +193,23 @@
 
 <script type="text/javascript">
 $('#form').bind("click", function(){
-    var str = '/wordpress/formulario?';
+    var str = '/kandor/empleo/formulario?';
     $('input.float-right').each(function(i, item){
         if (this.checked){
             str += "id=" + item.value + "&"
+            alert(str);
         }
     });
-    if (str != '/wordpress/formulario?') {
+    if (str != '/kandor/empleo/formulario?') {
         str = str.substring(0, str.length - 1);
         console.log(str);
         jQuery.fancybox({
             'transitionIn': 'elastic',
             'transitionOut': 'elastic',
-            'speedIn': 600,
+            'speedIn': 200,
             'speedOut': 200,
+            'width': 680,
+            'height':620,
             'type': 'iframe',
             'href': str 
         });
