@@ -139,7 +139,7 @@
 			<article>
 					<div class="demo-2">
 						<span class="oferta"><?php the_title();?> <span class="departamento"><?php echo strip_tags($tipos_list);?></span>
-							<input class="float-right" type="checkbox" value="<?php the_id();?>" id="<?php the_title();?>">
+							<input class="float-right" type="checkbox" value="<?php the_id();?>" id="<?php echo $slug; ?>">
 							<hr>
 						</span>
 						<div class="prueba">
@@ -165,7 +165,7 @@
   		<li id="otros-perfilesTab"><!-- otros perfiles -->
   			
   		<p>Lo sentimos, pero no tenemos procesos de selecci&oacute;n abiertos para Otros Perfiles.</p>
-		<p>Si est&aacute;s interesado en puestos <strong>Administrativos, Comerciales, Marketing, RRHH, Producci&oacute;n, Finanzas, IT, </strong>etc... puedes inscribirte en nuestra <a href="http://localhost/kandor/empleo/bolsa-de-empleo" id="bolsadeempleo2">Bolsa de Empleo</a> y en cuanto surja una oferta que se ajuste a tu perfil te incluiremos en el proceso de selecci&oacute;n.</p>
+		<p>Si est&aacute;s interesado en puestos <strong>Administrativos, Comerciales, Marketing, RRHH, Producci&oacute;n, Finanzas, IT, </strong>etc... puedes inscribirte en nuestra <a href="/bolsadeempleo" id="bolsadeempleo2">Bolsa de Empleo</a> y en cuanto surja una oferta que se ajuste a tu perfil te incluiremos en el proceso de selecci&oacute;n.</p>
   			
 		</li>
 	</ul>
@@ -180,7 +180,7 @@
 	<div class="row cuarenta-top">
 <p><strong>&iquest;No has encontrado ninguna oferta que se ajuste a tu perfil?</strong></p>
 <p>No te preocupes en KANDOR Graphics estamos continuamente buscando nuevos talentos para nuestros proyectos. Inscr&iacute;bete en nuestra
-<a href="http://localhost/kandor/empleo/bolsa-de-empleo" id="bolsadeempleo1">Bolsa de Empleo</a> y en cuanto surja una oferta que se ajuste a tu perfil te incluiremos en el proceso de selecci&oacute;n.</p>
+<a href="/wordpress/bolsadeempleo" id="bolsadeempleo1">Bolsa de Empleo</a> y en cuanto surja una oferta que se ajuste a tu perfil te incluiremos en el proceso de selecci&oacute;n.</p>
 
 <p>Si deseas estar informado acerca de nuestras ofertas de empleo suscr&iacute;bete a esta lista y estar&aacute;s siempre al tanto de nuestros procesos de selecci&oacute;n.</p>
 </div>
@@ -193,14 +193,14 @@
 
 <script type="text/javascript">
 $('#form').bind("click", function(){
-    var str = '/kandor/empleo/formulario?';
+    var str = '/wordpress/formulario?';
     $('input.float-right').each(function(i, item){
         if (this.checked){
-            str += "id=" + item.value + "&"
-            alert(str);
+            str += "id" + i + "=" + item.value + "&" + "name" + i + "=" + item.id + "&"
         }
     });
-    if (str != '/kandor/empleo/formulario?') {
+    console.log(str);
+    if (str != '/wordpress/formulario?') {
         str = str.substring(0, str.length - 1);
         console.log(str);
         jQuery.fancybox({

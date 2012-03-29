@@ -7,39 +7,39 @@
 <?php wp_head(); ?>
 <link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>">
 
-<?php $id = $_GET['id'];?>
-
 <article>
         <div class="form-offers">
             <div class="skills" id="habilidades" style="display: block">
-				<?php 
-				$term_list = get_the_terms($id, 'habilidad-artistica');
-                
-                foreach ( $term_list as $term ) {
-                    echo "<div class=items>"; ?>
-                    <input type="checkbox" checked="true" value="" id="<?php echo $term->name;?>">
-                    <?php echo $term->name;
-                    echo "</div>"; 
-                }
-                ?>
-                <?php 
-                $term_list = get_the_terms($id, 'habilidad-tecnica');
-                
-                foreach ( $term_list as $term ) {
-                    echo "<div class=items>"; ?>
-                    <input type="checkbox" checked="true" value="" id="<?php echo $term->name;?>">
-                    <?php echo $term->name;
-                    echo "</div>"; 
-                }
-                ?>	
-                <?php 
-                $term_list = get_the_terms($id, 'habilidad-software');
-                
-                foreach ( $term_list as $term ) {
-                    echo "<div class=items>"; ?>
-                    <input type="checkbox" checked="true" value="" id="<?php echo $term->name;?>">
-                    <?php echo $term->name;
-                    echo "</div>"; 
+				<?php
+                $i = 0;
+                foreach ( $_GET as $ids => $id ){
+                    if ( $ids == (ids + $i)) {
+                        $term_list = get_the_terms($id, 'habilidad-artistica');
+                        print_r($ids);
+                        foreach ( $term_list as $term ) {
+                            echo "<div class=items>"; ?>
+                            <input type="checkbox" checked="true" value="" id="<?php echo $term->name;?>">
+                            <?php echo $term->name;
+                            echo "</div>"; 
+                        }
+                        $term_list = get_the_terms($id, 'habilidad-tecnica');
+                        
+                        foreach ( $term_list as $term ) {
+                            echo "<div class=items>"; ?>
+                            <input type="checkbox" checked="true" value="" id="<?php echo $term->name;?>">
+                            <?php echo $term->name;
+                            echo "</div>"; 
+                        }
+                        $term_list = get_the_terms($id, 'habilidad-software');
+                        
+                        foreach ( $term_list as $term ) {
+                            echo "<div class=items>"; ?>
+                            <input type="checkbox" checked="true" value="" id="<?php echo $term->name;?>">
+                            <?php echo $term->name;
+                            echo "</div>"; 
+                        }
+                    $i = $i + 1;
+                    }
                 }
                 ?>
             </div>

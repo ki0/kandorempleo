@@ -4,7 +4,8 @@
 	*/
 	?>
 
-<?php get_header(); ?>
+<?php wp_head(); ?>
+<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>">
 
 <article>
         <div class="demo-2">
@@ -15,4 +16,6 @@
 </article>
 
 
-<?php get_footer(); ?>
+<?php wp_footer(); ?>
+</body>
+</html>
