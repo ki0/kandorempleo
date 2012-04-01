@@ -43,108 +43,104 @@
 			
 			<div class="row" id="mostrar">
 				<div class="demo-1">
-				<p><strong>Mostrando un total de <?php echo $count_posts;?> ofertas laborales de perfil art&iacute;stico y t&eacute;cnico.</strong></br>
+					<p><strong>Mostrando un total de <?php echo $count_posts;?> ofertas laborales de perfil art&iacute;stico y t&eacute;cnico.</strong></br>
 				</p>
-				<span class="flecha">Puedes filtrar los resultados por habilidades requeridas <img src="<?php bloginfo('template_url');?>/images/empleo-flecha-filtro.png"></span>
-				
+				Puedes filtrar los resultados por <span class="filter sub-italic">habilidades requeridas</span>
 				<div id="filtro">
-				<div class="habilidad">
-					<div class="titulo-habilidad">Habilidades art&iacute;sticas</div>
-					<hr class="negro">
-				<?php 
-					$terms = get_terms("habilidad-artistica");
-					$count = count($terms);
-						if ( $count > 0 ){
-			   			echo "<ul>";
-			    		foreach ( $terms as $term ) {
-				?>
-					<?php echo "<div class=items>"; ?>
-					<input type="checkbox" value="" id="">
- 					<?php echo $term->name;?> 
- 					<?php echo "</div>"; ?>
-                <?php } echo "</ul>";
-				}?>
-				</div>
-				
-				<div class="habilidad">
-					<div class="titulo-habilidad">Habilidades t&eacute;cnicas</div>
-					<hr class="negro">
-				<?php 
-					$terms = get_terms("habilidad-tecnica");
-					$count = count($terms);
-						if ( $count > 0 ){
-			   			echo "<ul>";
-			    		foreach ( $terms as $term ) {
-				?>
-
+					<div class="habilidad">
+				<div class="titulo-habilidad">Habilidades art&iacute;sticas</div>
+				<hr class="negro">
+			<?php 
+				$terms = get_terms("habilidad-artistica");
+				$count = count($terms);
+					if ( $count > 0 ){
+		   			echo "<ul>";
+		    		foreach ( $terms as $term ) {
+			?>
 				<?php echo "<div class=items>"; ?>
-				<input type="checkbox" value="" id="">
- 				<?php echo '<a href="'.get_term_link($term->slug, 'habilidad-tecnica').'">'.$term->name.'</a>'?> 
- 				<?php echo "</div>"; ?>
-                <?php		
-                		
-                		}
-			   			echo "</ul>";
-						}
-				?>
-				</div>
+				<input class="habilidades" type="checkbox" value="<?php echo $term->term_id;?>" id="<?php echo $term->slug;?>">
+					<?php echo $term->name;?> 
+					<?php echo "</div>"; ?>
+            <?php } echo "</ul>";
+			}?>
+			</div>
+			
+			<div class="habilidad">
+				<div class="titulo-habilidad">Habilidades t&eacute;cnicas</div>
+				<hr class="negro">
+			<?php 
+				$terms = get_terms("habilidad-tecnica");
+				$count = count($terms);
+					if ( $count > 0 ){
+		   			echo "<ul>";
+		    		foreach ( $terms as $term ) {
+			?>
+			<?php $slug = $term->slug;?>
+			<?php echo "<div class=items>"; ?>
+			<input class="habilidades" type="checkbox" value="<?php echo $term->term_id;?>" id="<?php echo $term->slug;?>">
+				<?php echo $term->name;?>
+				<?php echo "</div>"; ?>
+            <?php		
+            		
+            		}
+		   			echo "</ul>";
+					}
+			?>
+			</div>
 
-				<div class="habilidad">
-					<div class="titulo-habilidad">Manejo de Software</div>
-					<hr class="negro">
-				<?php 
-					$terms = get_terms("habilidad-software");
-					$count = count($terms);
-						if ( $count > 0 ){
-			   			echo "<ul>";
-			    		foreach ( $terms as $term ) {
-				?>
+			<div class="habilidad">
+				<div class="titulo-habilidad">Manejo de Software</div>
+				<hr class="negro">
+			<?php 
+				$terms = get_terms("habilidad-software");
+				$count = count($terms);
+					if ( $count > 0 ){
+		   			echo "<ul>";
+		    		foreach ( $terms as $term ) {
+			?>
 
-				<?php echo "<div class=items>"; ?>
-				<input type="checkbox" value="" id="">
- 				<?php echo $term->name;?> 
- 				<?php echo "</div>"; ?>
-                <?php		
-                		
-                		}
-			   			echo "</ul>";
-						}
-				?>
+			<?php echo "<div class=items>"; ?>
+			<input class="habilidades" type="checkbox" value="<?php echo $term->term_id;?>" id="<?php echo $term->slug;?>">
+				<?php echo $term->name;?> 
+				<?php echo "</div>"; ?>
+            <?php		
+            		
+            		}
+		   			echo "</ul>";
+					}
+			?>
+			</div>
+			
+			<div class="row">
+				<div class="two columns float-right" id="filtrar">
+					<a class="nice radius blue button full-width" id="filter">filtrar</a>
 				</div>
-				
-				<div class="row">
-					<div class="two columns float-right" id="filtrar">
-						<a class="nice radius blue button full-width" href="#" id="">filtrar</a>
-					</div>
-				</div>
-				
+			</div>	
+
 				</div>
 			</div>
 			
-			</div> <!-- demo-1 -->
+			<div class="row" id="seleccionar">
+				<p>Seleccionar <img src="<?php bloginfo('template_url');?>/images/seleccionar.png" style="vertical-align:bottom;padding-left: 10px;"></p>
+			</div>
 			
-  			<?php query_posts( array( 'post_type' => 'ofertas', 'perfiles' => 'artistico-y-tecnico' ) );?>
+  			<?php query_posts( array( 'post_type' => 'ofertas', 'perfil' => 'artistico-y-tecnico' ) );?>
   			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-			<!-- Begin the first article -->
-			<?php  
-				/* $taxo_text = "";   */
-				/* $tipos_list = get_the_term_list( $post->ID, 'departamento', '', ' / ', '' ); */
-				/* echo $tipos_list; */
-			?>
-			<? $slug = basename(get_permalink()); ?>
+			
+			<? $slug = basename(get_permalink());?>
+			
 			<?php  
 			$taxo_text = "";  
 			$tipos_list = get_the_term_list( $post->ID, 'departamento', '', ' / ', '' );
 			?>
+			
 			<article>
 					<div class="demo-2">
-						<span class="oferta"><?php the_title();?> <span class="departamento"><?php echo strip_tags($tipos_list);?></span>
-							<input class="float-right" type="checkbox" value="<?php the_id();?>" id="<?php echo $slug; ?>">
-							<hr>
-						</span>
+						<input class="float-right" type="checkbox" value="<?php the_id();?>" id="<?php echo $slug?>">	
+						<div class="oferta"><?php the_title();?></div>
+						<span class="departamento"><?php echo strip_tags($tipos_list);?></span>
 						<div class="prueba">
 							<?php the_content(); ?>
-
 						</div>
 					</div>
 			</article>
@@ -160,29 +156,63 @@
 	    	emm_paginate();
 			} ?>	        	
 			<!-- End Pagination -->
-			</li>
+		</li>
   
   		<li id="otros-perfilesTab"><!-- otros perfiles -->
-  			
-  		<p>Lo sentimos, pero no tenemos procesos de selecci&oacute;n abiertos para Otros Perfiles.</p>
-		<p>Si est&aacute;s interesado en puestos <strong>Administrativos, Comerciales, Marketing, RRHH, Producci&oacute;n, Finanzas, IT, </strong>etc... puedes inscribirte en nuestra <a href="/bolsadeempleo" id="bolsadeempleo2">Bolsa de Empleo</a> y en cuanto surja una oferta que se ajuste a tu perfil te incluiremos en el proceso de selecci&oacute;n.</p>
+  		
+  		<div id="content-main">
+
+		<?php
+		$args = array(
+			"perfil" => 'otros',
+			'post_type' => 'ofertas',
+			'post_status' => 'publish',
+			'posts_per_page' => -1,
+			'caller_get_posts'=> 1
+		);
+	
+		$my_query = null;
+		$my_query = new WP_Query($args);
+
+		if( $my_query->have_posts() ) : ?>
+		
+		<?php while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
+		
+		<article>
+			<div class="demo-2">
+				<input class="float-right" type="checkbox" value="<?php the_id();?>" id="<?php echo $slug?>">	
+				<div class="oferta"><?php the_title();?></div>
+				<span class="departamento"><?php echo strip_tags($tipos_list);?></span>
+				<div class="prueba">
+					<?php the_content(); ?>
+				</div>
+			</div>
+		</article>
+
+		<?php endwhile; // end of loop ?>
+
+		<?php else : ?>
+<p>Lo sentimos, pero no tenemos procesos de selecci&oacute;n abiertos para Otros Perfiles.</p>
+<p>Si est&aacute;s interesado en puestos <strong>Administrativos, Comerciales, Marketing, RRHH, Producci&oacute;n, Finanzas, IT, </strong>etc... puedes inscribirte en nuestra <a href="<?php bloginfo('url');?>/bolsadeempleo" id="bolsadeempleo2">Bolsa de Empleo</a> y en cuanto surja una oferta que se ajuste a tu perfil te incluiremos en el proceso de selecci&oacute;n.</p>
+		<?php endif; // if have_posts()
+		wp_reset_query();
+		?>
   			
 		</li>
 	</ul>
 	<div class="row cuarenta-top">
-	<div class="five columns">
-		<p class="selecciona"><strong>Selecciona las ofertas de la lista y</strong></p>
-	</div>
+		<div class="five columns">
+			<p class="selecciona"><strong>Selecciona las ofertas de la lista y</strong></p>
+		</div>
 		<div class="four columns" id="volver">
-			<a class="nice radius blue button float-right full-width" id="form">solicita estos puestos  <img style="vertical-align:bottom;padding-left: 10px;" width="17" height="18" src="../images/orbit/right-arrow.png"></a>
-	</div>
+			<a class="nice radius blue button float-right full-width" id="form">solicita estos puestos </a>
+		</div>
 	</div>
 	<div class="row cuarenta-top">
 <p><strong>&iquest;No has encontrado ninguna oferta que se ajuste a tu perfil?</strong></p>
-<p>No te preocupes en KANDOR Graphics estamos continuamente buscando nuevos talentos para nuestros proyectos. Inscr&iacute;bete en nuestra
-<a href="/wordpress/bolsadeempleo" id="bolsadeempleo1">Bolsa de Empleo</a> y en cuanto surja una oferta que se ajuste a tu perfil te incluiremos en el proceso de selecci&oacute;n.</p>
+<p>No te preocupes en KANDOR Graphics estamos continuamente buscando nuevos talentos para nuestros proyectos. <span class="sub-italic"><a href="<?php bloginfo('url');?>/bolsadeempleo" id="bolsadeempleo1">Inscr&iacute;bete en nuestra Bolsa de Empleo</a></span> y en cuanto surja una oferta que se ajuste a tu perfil te incluiremos en el proceso de selecci&oacute;n.</p>
 
-<p>Si deseas estar informado acerca de nuestras ofertas de empleo suscr&iacute;bete a esta lista y estar&aacute;s siempre al tanto de nuestros procesos de selecci&oacute;n.</p>
+<p>Si deseas estar informado acerca de nuestras ofertas de empleo <span class="sub-italic"><a href="<?php bloginfo('rss2_url');?>">suscr&iacute;bete a esta lista</a></span> y estar&aacute;s siempre al tanto de nuestros procesos de selecci&oacute;n.</p>
 </div>
 
 
@@ -193,14 +223,14 @@
 
 <script type="text/javascript">
 $('#form').bind("click", function(){
-    var str = '/wordpress/formulario?';
+    var str = '/kandor/empleo/formulario?';
     $('input.float-right').each(function(i, item){
         if (this.checked){
             str += "id" + i + "=" + item.value + "&" + "name" + i + "=" + item.id + "&"
         }
     });
     console.log(str);
-    if (str != '/wordpress/formulario?') {
+    if (str != '/kandor/empleo/formulario?') {
         str = str.substring(0, str.length - 1);
         console.log(str);
         jQuery.fancybox({
@@ -214,6 +244,33 @@ $('#form').bind("click", function(){
             'href': str 
         });
     }
+});
+</script>
+
+<script type="text/javascript">
+$('#filter').bind("click", function(){
+    var str = '/kandor/empleo/?s=';
+    $('input.habilidades').each(function(i, item){
+        if (this.checked){
+            str += "id" + i + "=" + item.value + "&" + "name" + i + "=" + item.id + "&"
+        }
+    });
+    console.log(str);
+     if (str != '/kandor/empleo/formulario?') {
+        str = str.substring(0, str.length - 1);
+        console.log(str);
+        jQuery.fancybox({
+            'transitionIn': 'elastic',
+            'transitionOut': 'elastic',
+            'speedIn': 200,
+            'speedOut': 200,
+            'width': 680,
+            'height':620,
+            'type': 'iframe',
+            'href': str 
+        });
+    }
+
 });
 </script>
 
