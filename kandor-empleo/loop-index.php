@@ -223,14 +223,16 @@
 
 <script type="text/javascript">
 $('#form').bind("click", function(){
-    var str = '/kandor/empleo/formulario?';
-    $('input.float-right').each(function(i, item){
+    var str = '/wordpress/formulario?';
+    var i = 0;
+    $('input.float-right').each(function(index, item){
         if (this.checked){
-            str += "id" + i + "=" + item.value + "&" + "name" + i + "=" + item.id + "&"
+            str += "id" + i + "=" + item.value + "&" + "name" + i + "=" + item.id + "&";
+            i++;
         }
     });
     console.log(str);
-    if (str != '/kandor/empleo/formulario?') {
+    if (str != '/wordpress/formulario?') {
         str = str.substring(0, str.length - 1);
         console.log(str);
         jQuery.fancybox({
@@ -250,9 +252,11 @@ $('#form').bind("click", function(){
 <script type="text/javascript">
 $('#filter').bind("click", function(){
     var str = '/kandor/empleo/?s=';
-    $('input.habilidades').each(function(i, item){
+    var i = 0;
+    $('input.habilidades').each(function(index, item){
         if (this.checked){
-            str += "id" + i + "=" + item.value + "&" + "name" + i + "=" + item.id + "&"
+            str += "id" + i + "=" + item.value + "&" + "name" + i + "=" + item.id + "&";
+            i++;
         }
     });
     console.log(str);

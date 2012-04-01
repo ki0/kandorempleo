@@ -17,35 +17,19 @@
 
 		   <div class="skills" id="habilidades" style="display: block">
 				<?php
+                $term_list = array();
                 $i = 0;
                 foreach ( $_GET as $ids => $id ){
                     if ( $ids === ("id" . $i)) {
-                        $term_list = get_the_terms($id, 'habilidad-artistica');
-                        print_r($ids);
-                        foreach ( $term_list as $term ) {
-                            echo "<div class=items>"; ?>
-                            <input type="checkbox" checked="true" value="" id="<?php echo $term->name;?>">
-                            <?php echo $term->name;
-                            echo "</div>"; 
-                        }
-                        $term_list = get_the_terms($id, 'habilidad-tecnica');
-                        
-                        foreach ( $term_list as $term ) {
-                            echo "<div class=items>"; ?>
-                            <input type="checkbox" checked="true" value="" id="<?php echo $term->name;?>">
-                            <?php echo $term->name;
-                            echo "</div>"; 
-                        }
-                        $term_list = get_the_terms($id, 'habilidad-software');
-                        
-                        foreach ( $term_list as $term ) {
-                            echo "<div class=items>"; ?>
-                            <input type="checkbox" checked="true" value="" id="<?php echo $term->name;?>">
-                            <?php echo $term->name;
-                            echo "</div>"; 
-                        }
+                        $term_list = array_unique(array_merge($term_list, get_the_terms($id, 'habilidad-artistica'), get_the_terms($id, 'habilidad-tecnica'), get_the_terms($id, 'habilidad-software') ));
                     $i = $i + 1;
                     }
+                }
+                foreach ( $term_list as $term ) {
+                    echo "<div class=items>"; ?>
+                    <input type="checkbox" checked="true" value="" id="<?php echo $term->name;?>">
+                    <?php echo $term->name;
+                    echo "</div>"; 
                 }
                 ?>
             </div>
