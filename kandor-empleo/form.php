@@ -21,7 +21,18 @@
                 $i = 0;
                 foreach ( $_GET as $ids => $id ){
                     if ( $ids === ("id" . $i)) {
-                        $term_list = array_unique(array_merge($term_list, get_the_terms($id, 'habilidad-artistica'), get_the_terms($id, 'habilidad-tecnica'), get_the_terms($id, 'habilidad-software') ));
+                        $terms_art = get_the_terms($id, 'habilidad-artistica');
+                        if (!empty( $terms_art )){
+                            $term_list = array_unique(array_merge( $term_list, $terms_art ));
+                        }
+                        $terms_tec = get_the_terms($id, 'habilidad-tecnica');
+                        if (!empty( $terms_tec )){
+                            $term_list = array_unique(array_merge( $term_list, $terms_tec ));
+                        }
+                        $terms_soft = get_the_terms($id, 'habilidad-software');  
+                        if (!empty( $terms_soft )){
+                            $term_list = array_unique(array_merge( $term_list, $terms_soft ));
+                        }
                     $i = $i + 1;
                     }
                 }
