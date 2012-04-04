@@ -21,25 +21,42 @@
                 $i = 0;
                 foreach ( $_GET as $ids => $id ){
                     if ( $ids === ("id" . $i)) {
-                        $terms_art = get_the_terms($id, 'habilidad-artistica');
-                        if (!empty( $terms_art )){
-                            $term_list = array_unique(array_merge( $term_list, $terms_art ));
+                        $aux = get_the_terms($id, 'habilidad-artistica');
+                        if ( !empty($aux) ){
+                            foreach ( $aux as $term ){
+                                $terms_art[] = $term->name;
+                            }
+                            if (!empty( $terms_art ) && is_array( $terms_art )){
+                                $term_list = array_unique(array_merge( $term_list, $terms_art ));
+                            }
                         }
-                        $terms_tec = get_the_terms($id, 'habilidad-tecnica');
-                        if (!empty( $terms_tec )){
-                            $term_list = array_unique(array_merge( $term_list, $terms_tec ));
+
+                        $aux = get_the_terms($id, 'habilidad-tecnica');
+                        if ( !empty($aux) ){
+                            foreach ( $aux as $term ){
+                                $terms_tec[] = $term->name;
+                            }
+                            if (!empty( $terms_tec ) && is_array( $terms_tec )){
+                                $term_list = array_unique(array_merge( $term_list, $terms_tec ));
+                            }
                         }
-                        $terms_soft = get_the_terms($id, 'habilidad-software');  
-                        if (!empty( $terms_soft )){
-                            $term_list = array_unique(array_merge( $term_list, $terms_soft ));
+
+                        $aux = get_the_terms($id, 'habilidad-software');
+                        if ( !empty($aux) ){
+                            foreach ( $aux as $term ){
+                                $terms_soft[] = $term->name;
+                            }
+                            if (!empty( $terms_soft ) && is_array( $terms_soft )){
+                                $term_list = array_unique(array_merge( $term_list, $terms_soft ));
+                            }
                         }
                     $i = $i + 1;
                     }
                 }
-                foreach ( $term_list as $term ) {
-                    echo "<div class=items>"; ?>
-                    <input type="checkbox" checked="true" value="" id="<?php echo $term->name;?>">
-                    <?php echo $term->name;
+                foreach ( $term_list as $term => $name ){
+                    echo "<div class=items>";?>
+                    <input type="checkbox" checked="true" value="" id="<?php echo $name;?>">
+                    <?php echo $name;
                     echo "</div>"; 
                 }
                 ?>
